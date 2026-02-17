@@ -1,0 +1,774 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Interactive Exotic Animal Data Table - Asia</title> 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
+  <style> 
+   body { 
+      background-color: #001f3f; 
+    } 
+   .table-container { 
+      background-color: #ffffff; 
+      padding: 20px; 
+      border-radius: 12px; 
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); 
+      margin: 50px auto; 
+      width: 95%; 
+      max-width: 1200px; 
+    } 
+   .table-hover tbody tr:hover { 
+      background-color: #f0f8ff; 
+      cursor: pointer; 
+    } 
+   .table thead th { 
+      text-align: center; 
+      background-color: #2c3e50; 
+      color: white; 
+      padding: 15px; 
+      font-weight: 600; 
+    } 
+   .table td, .table th { 
+      vertical-align: middle; 
+      text-align: center; 
+    } 
+   .animal-img { 
+      width: 80px; 
+      height: auto; 
+      border-radius: 5px; 
+    } 
+   .modal-content { 
+      border-radius: 15px; 
+      overflow: hidden; 
+    } 
+   .modal-header { 
+      background-color: #2c3e50; 
+      color: white; 
+      border-bottom: none; 
+      padding: 1rem 1.5rem; 
+    } 
+   .modal-body { 
+      padding: 2rem; 
+    } 
+   .modal-title { 
+      font-weight: bold; 
+    } 
+   .close { 
+      color: white; 
+    } 
+   .close:hover { 
+      color: #ddd; 
+    } 
+   .modal-img-container { 
+      margin-bottom: 20px; 
+    } 
+   .modal-img { 
+      max-width: 300px; 
+      border-radius: 10px; 
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    } 
+   .info-label { 
+      font-weight: bold; 
+      color: #2c3e50; 
+      display: inline-block; 
+      min-width: 120px; 
+    } 
+   .info-text { 
+      color: #34495e; 
+    } 
+   .mb-3 { 
+      margin-bottom: 1rem; 
+    } 
+   .table tbody tr td:nth-child(3) { 
+      font-style: italic; 
+    } 
+  </style> 
+</head> 
+<body> 
+
+<div class="container-fluid"> 
+  <div class="table-container"> 
+    <h2 class="text-center">Exotic Animals of Europe</h2> 
+    <div class="table-responsive"> 
+      <table class="table table-bordered table-hover"> 
+        <thead> 
+          <tr> 
+            <th>Image</th> 
+            <th>Animal Name</th> 
+            <th>Scientific Name</th> 
+            <th>Country</th> 
+            <th>Life Span</th> 
+            <th>IUCN Category</th> 
+            <th>Description</th> 
+          </tr> 
+        </thead> 
+        <tbody> 
+<tr> 
+    <td><img src="https://www.cue-podgorica.com/wp-content/uploads/2024/07/balkanlynx3-0x150.webp" alt="Balkan Lynx" class="animal-img"></td> 
+    <td>Balkan Lynx</td> 
+    <td>Lynx lynx balcanicus</td> 
+    <td>Albania</td> 
+    <td>10-15 years</td> 
+    <td>Critically Endangered</td> 
+    <td>A rare subspecies of lynx found only in the Balkan region.</td> 
+</tr>
+<tr> 
+    <td><img src="https://i.natgeofe.com/n/e51ee56d-bbf1-471a-a1f8-88755edfb79d/6308569_square.jpg" alt="Golden Eagle" class="animal-img"></td> 
+    <td>Golden Eagle</td> 
+    <td>Aquila chrysaetos</td> 
+    <td>Albania</td> 
+    <td>20-30 years</td> 
+    <td>Least Concern</td> 
+    <td>A large bird of prey known for its impressive hunting skills.</td> 
+</tr>
+<tr> 
+    <td><img src="https://en.nabu.de/imperia/md/nabu/images/regional/niedersachsen/projektsumpfschildkr%C3%B6te/140910-nabu-europaeische-sumpfschildkroete-baerbel-rogoschik4.jpeg" alt="European Pond Turtle" class="animal-img"></td> 
+    <td>European Pond Turtle</td> 
+    <td>Emys orbicularis</td> 
+    <td>Albania</td> 
+    <td>30-40 years</td> 
+    <td>Near Threatened</td> 
+    <td>A semi-aquatic turtle that prefers slow-moving water bodies.</td> 
+</tr>
+<tr> 
+    <td><img src="https://s3.animalia.bio/animals/photos/full/1.25x1/pyrenean-chamois-ordesa-national-park-spain.webp?id=3c2d57f4dc55896527fc29a8bf2b854f" alt="Pyrenean Chamois" class="animal-img"></td> 
+    <td>Pyrenean Chamois</td> 
+    <td>Rupicapra pyrenaica</td> 
+    <td>Andorra</td> 
+    <td>12-16 years</td> 
+    <td>Least Concern</td> 
+    <td>A goat-antelope species found in the Pyrenees.</td> 
+</tr>
+<tr> 
+    <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSxYpgQqGOPD_ufo5K0Nw3ww8G4ywJAIZ0qg&s" alt="Eurasian Red Squirrel" class="animal-img"></td> 
+    <td>Eurasian Red Squirrel</td> 
+    <td>Sciurus vulgaris</td> 
+    <td>Andorra</td> 
+    <td>6-12 years</td> 
+    <td>Near Threatened</td> 
+    <td>A small tree squirrel with distinctive red fur.</td> 
+</tr>
+<tr> 
+    <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhlwpqMc8tTy6ILbl3ldwL6v2g6aeZ8z4pdA&s" alt="European Common Frog" class="animal-img"></td> 
+    <td>European Common Frog</td> 
+    <td>Rana temporaria</td> 
+    <td>Andorra</td> 
+    <td>5-10 years</td> 
+    <td>Least Concern</td> 
+    <td>A common amphibian found in various habitats.</td> 
+</tr>
+<tr> 
+    <td><img src="https://phoenixtour.org/wp-content/uploads/2022/01/08-ARMENIAN-GAMPR-1.jpg" alt="Armenian Gampr Dog" class="animal-img"></td> 
+    <td>Armenian Gampr Dog</td> 
+    <td>Canis lupus familiaris</td> 
+    <td>Armenia</td> 
+    <td>12-15 years</td> 
+    <td>Not Evaluated</td> 
+    <td>A native livestock guardian dog known for its strength and loyalty.</td> 
+</tr>
+<tr> 
+    <td><img src="https://observation.org/media/photo/9240808.jpg" alt="Levant Sparrowhawk" class="animal-img"></td> 
+    <td>Levant Sparrowhawk</td> 
+    <td>Accipiter brevipes</td> 
+    <td>Armenia</td> 
+    <td>5-10 years</td> 
+    <td>Least Concern</td> 
+    <td>A small bird of prey known for its migratory behavior.</ td> 
+</tr>
+<tr> 
+    <td><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/59842740/original.jpg" alt="Persian Gazelle" class="animal-img"></td> 
+    <td>Persian Gazelle</td> 
+    <td>Gazella subgutturosa</td> 
+    <td>Armenia</td> 
+    <td>8-12 years</td> 
+    <td>Vulnerable</td> 
+    <td>A graceful gazelle found in arid regions.</td> 
+</tr>
+<tr> 
+    <td><img src="https://zooinstitutes.com/img/animals/94/941655705794_8.jpg.pagespeed.ce.yq1cxKPs8x.jpg" alt="Alpine Ibex" class="animal-img"></td> 
+    <td>Alpine Ibex</td> 
+    <td>Capra ibex</td> 
+    <td>Austria</td> 
+    <td>15-20 years</td> 
+    <td>Least Concern</td> 
+    <td>A mountain goat known for its impressive curved horns.</td> 
+</tr>
+<tr> 
+    <td><img src="https://images.rewildingbritain.org.uk/images/wolf-in-snow-vlada-cech-shutterstock.jpg?auto=format&crop=focalpoint&domain=images.rewildingbritain.org.uk&fit=crop&fp-x=0.5668&fp-y=0.4572&h=1080&ixlib=php-3.3.1&q=82&usm=20&w=1920" alt="Eurasian Wolf" class="animal-img"></td> 
+    <td>Eurasian Wolf</td> 
+    <td>Canis lupus lupus</td> 
+    <td>Austria</td> 
+    <td>10-15 years</td> 
+    <td>Least Concern</td> 
+    <td>A highly adaptable carnivore found in various habitats.</td> 
+</tr>
+<tr> 
+    <td><img src="https://afspubs.onlinelibrary.wiley.com/cms/asset/e8125858-fdd9-4c12-b497-a099c843672b/fsh11072-gra-0001-m.jpg" alt="Danube Salmon" class="animal-img"></td> 
+    <td>Danube Salmon</td> 
+    <td>Hucho hucho</td> 
+    <td>Austria</td> 
+    <td>10-15 years</td> 
+    <td>Endangered</td> 
+    <td>A large freshwater fish native to the Danube River.</td> 
+</tr>
+<tr> 
+    <td><img src="https://ruffordorg.s3.amazonaws.com/media/cached/project_images/08.01.08_Untitled/684cb4634073152f83e361dc01bd731d.jpg" alt="Persian Leopard" class="animal-img"></td> 
+    <td>Persian Leopard</td> 
+    <td>Panthera pardus saxicolor</td> 
+    <td>Azerbaijan</td> 
+    <td>10-15 years</td> 
+    <td>Endangered</td> 
+    <td>A large, solitary feline adapted to various habitats.</td> 
+</tr>
+<tr> 
+    <td><img src="https://cms.pairidaiza.eu/thumbor/_I83XPbkYYqoEsZ2y4Fab8ikQmY=/fit-in/1024x/filters:quality(92)/--/uploads/2024/02/IMG_9891-e1708530314764.jpg" alt="Kura River Brown Bear" class="animal-img"></td> 
+    <td>Kura River Brown Bear</td> 
+    <td>Ursus arctos</td> 
+    <td>Azerbaijan</td> 
+    <td>20-30 years</td> 
+    <td>Least Concern</td> 
+    <td>A large omnivore found in forests and mountains.</td> 
+</tr>
+<tr> 
+    <td><img src="https://image.jimcdn.com/app/cms/image/transf/none/path/s1ba3d513af1865f3/image/i811868ad23fc94a8/version/1545502507/lacerta-trilineata.jpg" alt="Balkan Green Lizard" class="animal-img"></td> 
+    <td>Balkan Green Lizard</td> 
+    <td>Lacerta viridis</td> 
+    <td>Azerbaijan</td> 
+    <td>5-10 years</td> 
+    <td>Least Concern</td> 
+    <td>A vibrant lizard known for its striking coloration.</td> 
+</tr>
+<tr> 
+    <td><img src="https://www.swissinfo.ch/content/wp-content/uploads/sites/13/2023/08/a4b3782100548e08546c5049099aefb6-542834320_highres-data.jpg" alt="European Bison" class="animal-img"></td> 
+    <td>European Bison</td> 
+    <td>Bison bonasus</td> 
+    <td>Belarus</td> 
+    <td>15-25 years</td> 
+    <td>Near Threatened</td> 
+    <td>Once extinct in the wild, now successfully reintroduced.</td> 
+</tr>
+<tr> 
+    <td><img src="https://observation.org/media/photo/5792863.jpg" alt="Common Crane" class="animal-img"></td> 
+    <td>Common Crane</td> 
+    <td>Gr us grus</td> 
+    <td>Belarus</td> 
+    <td>20-30 years</td> 
+    <td>Least Concern</td> 
+    <td>A large migratory bird known for its dancing displays.</td> 
+</tr>
+<tr> 
+    <td><img src="https://cdn.britannica.com/64/172264-050-24F6F684/species-beaver-one-Eurasian-thanks-population-numbers-2013.jpg" alt="European Beaver" class="animal-img"></td> 
+    <td>European Beaver</td> 
+    <td>Castor fiber</td> 
+    <td>Belarus</td> 
+    <td>10-20 years</td> 
+    <td>Least Concern</td> 
+    <td>A large rodent known for its dam-building behavior.</td> 
+</tr>
+<tr> 
+    <td><img src="https://www.wildlifetrusts.org/sites/default/files/styles/node_hero_default/public/2017-12/Badger%20-%20Credit%20Mark%20Davison.jpg?h=9a60bbcf&itok=Rfs9CsL_" alt="Eurasian Badger" class="animal-img"></td> 
+    <td>Eurasian Badger</td> 
+    <td>Meles meles</td> 
+    <td>Belgium</td> 
+    <td>14 years</td> 
+    <td>Least Concern</td> 
+    <td>A nocturnal mammal known for its distinctive black and white markings.</td> 
+</tr>
+<tr> 
+    <td><img src="https://static.wikia.nocookie.net/fictionrulezforever/images/4/46/Profile_-_Red_Fox.jpg/revision/latest?cb=20240229230512" alt="Red Fox" class="animal-img"></td> 
+    <td>Red Fox</td> 
+    <td>Vulpes vulpes</td> 
+    <td>Belgium</td> 
+    <td>3-6 years (wild), up to 14 years (in captivity)</td> 
+    <td>Least Concern</td> 
+    <td>A highly adaptable canid often found in urban areas.</td> 
+</tr>
+<tr> 
+    <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrU21l2tlbLJXjeVp8hn-VkCfd7An7lGNBuA&s" alt="Common Kingfisher" class="animal-img"></td> 
+    <td>Common Kingfisher</td> 
+    <td>Alcedo atthis</td> 
+    <td>Belgium</td> 
+    <td>2-4 years</td> 
+    <td>Least Concern</td> 
+    <td>A small bird known for its striking blue and orange plumage.</td> 
+</tr>
+<tr> 
+    <td><img src="https://files.worldwildlife.org/wwfcmsprod/images/Brown_Bear_/hero_small/7h2u6tj3h3_brownbear_hero.jpg" alt="Brown Bear" class="animal-img"></td> 
+    <td>Brown Bear</td> 
+    <td>Ursus arctos</td> 
+    <td>Bosnia and Herzegovina</td> 
+    <td>20-30 years</td> 
+    <td>Least Concern</td> 
+    <td>A large omnivore found in forested areas.</td> 
+</tr>
+<tr> 
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Bufo_bufo_sitting-Iric2006.jpg" alt="Common Toad" class="animal-img"></td> 
+    <td>Common Toad</td> 
+    <td>Bufo bufo</td> 
+    <td>Bosnia and Herzegovina</td> 
+    <td>10-12 years</td> 
+    <td>Least Concern</td> 
+    <td>A common amphibian found in a variety of habitats.</td> 
+</tr>
+<tr> 
+    <td><img src="https://i.guim.co.uk/img/media/9cb888807f72607389a86eeff5fca5ec9e35e6d1/0_184_5472_3283/master/5472.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=95b0e81bdfc5f3d8e680da13510e739a" alt="Iberian Lynx" class="animal-img"></td> 
+    <td>Iberian Lynx</td> 
+    <td>Lynx pardinus</td> 
+    <td>Bulgaria</td> 
+    <td>13 years</td> 
+    <td>Critically Endangered</ td> 
+    <td>One of the most endangered feline species in the world.</td> 
+</tr>
+<tr> 
+    <td><img src="https://www.ecologyasia.com/images-gh/golden-jackal_8648_CC.jpg" alt="Golden Jackal" class="animal-img"></td> 
+    <td>Golden Jackal</td> 
+    <td>Canis aureus</td> 
+    <td>Bulgaria</td> 
+    <td>10-14 years</td> 
+    <td>Least Concern</td> 
+    <td>A small to medium-sized canid found in various habitats.</td> 
+</tr>
+<tr> 
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Bubo_bubo_3_%28Martin_Mecnarowski%29.jpg/640px-Bubo_bubo_3_%28Martin_Mecnarowski%29.jpg" alt="Eurasian Eagle Owl" class="animal-img"></td> 
+    <td>Eurasian Eagle Owl</td> 
+    <td>Bubo bubo</td> 
+    <td>Bulgaria</td> 
+    <td>20-25 years</td> 
+    <td>Least Concern</td> 
+    <td>A large owl known for its impressive size and hunting prowess.</td> 
+</tr>
+<tr> 
+    <td><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/16029/large.jpg" alt="Dalmatian Pelican" class="animal-img"></td> 
+    <td>Dalmatian Pelican</td> 
+    <td>Pelecanus crispus</td> 
+    <td>Croatia</td> 
+    <td>10-15 years</td> 
+    <td>Near Threatened</td> 
+    <td>One of the largest pelican species known for its massive bill.</td> 
+</tr>
+<tr> 
+    <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTApcKxkSH5q4m172Rq1ROhfdRCqZ0_MQq2A&s" alt="European Green Lizard" class="animal-img"></td> 
+    <td>European Green Lizard</td> 
+    <td>Lacerta viridis</td> 
+    <td>Croatia</td> 
+    <td>5-10 years</td> 
+    <td>Least Concern</td> 
+    <td>A vibrant lizard known for its colorful appearance.</td> 
+</tr>
+<tr> 
+    <td><img src="https://butterfly-conservation.org/sites/default/files/styles/srcset_medium/public/adonis-blue-upperwing-male1--peter-eeles-web.jpg?itok=iGn4IgIu" alt="Common Blue Butterfly" class="animal-img"></td> 
+    <td>Common Blue Butterfly</td> 
+    <td>Polyommatus icarus</td> 
+    <td>Croatia</td> 
+    <td>1-2 months</td> 
+    <td>Least Concern</td> 
+    <td>A small butterfly known for its striking blue wings.</td> 
+</tr>
+<tr> 
+    <td><img src="https://www.wilddocu.de/wp-content/uploads/2016/09/Ovis_g_ophion_035.jpg" alt="Cyprus Mouflon" class="animal-img"></td> 
+    <td>Cyprus Mouflon</td> 
+    <td>Ovis gmelini</td> 
+    <td>Cyprus</td> 
+    <td>10-15 years</td> 
+    <td>Vulnerable</td> 
+    <td>A wild sheep species endemic to Cyprus.</td> 
+</tr>
+<tr> 
+    <td><img src="https://www.mmc.gov/wp-content/uploads/HIMonkSeal.jpg" alt="Mediterranean Monk Seal" class="animal-img"></td> 
+    <td>Mediterranean Monk Seal</td> 
+    <td>Monachus monachus</td> 
+    <td>Cyprus</td> 
+    <td>20-30 years</td> 
+    <td>Critically Endangered</td> 
+    <td>A rare marine mammal often found along the Mediterranean coast.</td> 
+</tr>
+<tr> 
+    <td><img src="https://observation.org/media/photo/2749364.jpg" alt="Cyprus Warbler" class="animal-img"></td> 
+    <td>Cyprus Warbler</td> 
+    <td>Sylvia melanothorax</td> 
+    <td>Cyprus</td> 
+    <td>2-4 years</td> 
+    <td>Not Evaluated</td> 
+    <td>A small bird endemic to Cyprus.</td> 
+</tr>
+<tr> 
+    <td><img src="https://cdn.britannica.com/54/122954-050-83BC7000/Red-deer.jpg" alt="European Red Deer" class="animal-img"></td> 
+    <td>European Red Deer</td> 
+    <td>Cervus elaphus</td> 
+    <td>Czech Republic</td> 
+    <td>10-15 years</td> 
+    <td>Least Concern</td> 
+    <td>A large deer species known for its impressive antlers.</td> 
+</tr>
+<tr> 
+    <td ><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS626DtgTS7PsJbhrTD4uqH3Pf2bu64DtIz_w&s" alt="Common Wall Lizard" class="animal-img"></td> 
+    <td>Common Wall Lizard</td> 
+    <td>Podarcis muralis</td> 
+    <td>Czech Republic</td> 
+    <td>5-10 years</td> 
+    <td>Least Concern</td> 
+    <td>A small lizard commonly found in warm areas.</td> 
+</tr>
+<tr> 
+    <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTknHVYBboSSwHwKqOJL4IFn6MXrAPYFi_G4w&s" alt="European Hedgehog" class="animal-img"></td> 
+    <td>European Hedgehog</td> 
+    <td>Erinaceus europaeus</td> 
+    <td>Denmark</td> 
+    <td>3-7 years</td> 
+    <td>Least Concern</td> 
+    <td>A small nocturnal mammal known for its spiny coat.</td> 
+</tr>
+<tr> 
+    <td><img src="https://cdn.download.ams.birds.cornell.edu/api/v1/asset/63897181/320" alt="Common Eider" class="animal-img"></td> 
+    <td>Common Eider</td> 
+    <td>Somateria mollissima</td> 
+    <td>Denmark</td> 
+    <td>10-15 years</td> 
+    <td>Least Concern</td> 
+    <td>A large sea duck known for its down feathers.</td> 
+</tr>
+<tr> 
+    <td><img src="https://www.fisheries.noaa.gov/s3//dam-migration/gray-seal-pup.jpg" alt="Gray Seal" class="animal-img"></td> 
+    <td>Gray Seal</td> 
+    <td>Halichoerus grypus</td> 
+    <td>Denmark</td> 
+    <td>25-30 years</td> 
+    <td>Least Concern</td> 
+    <td>A large marine mammal found along the northern coasts.</td> 
+</tr>
+<tr> 
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Jasper.Wapiti-Hirsch.P1033401.jpg/800px-Jasper.Wapiti-Hirsch.P1033401.jpg" alt="European Elk" class="animal-img"></td> 
+    <td>European Elk</td> 
+    <td>Alces alces</td> 
+    <td>Estonia</td> 
+    <td>15-25 years</td> 
+    <td>Least Concern</td> 
+    <td>The largest species of deer, commonly found in forests.</td> 
+</tr>
+<tr> 
+    <td><img src="https://cdn.britannica.com/71/149571-050-C33E9F0F/Brown-bear-Finland.jpg?w=400&h=225&c=crop" alt="Eurasian Brown Bear" class="animal-img"></td> 
+    <td>Eurasian Brown Bear</td> 
+    <td>Ursus arctos</td> 
+    <td>Estonia</td> 
+    <td>20-30 years</td> 
+    <td>Least Concern</td> 
+    <td>A large omnivore known for its strength.</td> 
+</tr>
+<tr> 
+    <td><img src="https://s3.amazonaws.com/media.jungledragon.com/images/134/1686_small.JPG?AWSAccessKeyId=05GMT0V3GWVNE7GGM1R2&Expires=1730937610&Signature=75cJoBJ4En1ORm8OZxoKwhyBYtw%3D" alt="Common Swift" class="animal-img"></td> 
+    <td>Common Swift</td> 
+    <td>Apus apus</td> 
+    <td>Estonia</td> 
+    <td>4-5 years</td> 
+    <td>Least Concern</td> 
+    <td>A fast-flying bird known for its aerial acrobatics.</td> 
+</tr>
+<tr> 
+    <td><img src="https://i0.wp.com/theflainstravel.com/wp-content/uploads/2024/03/saimaa-seal-1.jpeg?fit=1024%2C546&ssl=1" alt="Saimaa Ringed Seal" class="animal-img"></td> 
+    <td>Saimaa Ringed Seal</td> 
+    <td>Pusa hispida saimensis</td> 
+    <td>Finland</td> 
+    <td>20-30 years</td> 
+    <td>Critically Endangered</td> 
+    <td>A freshwater seal species found only in Lake Saimaa.</td> 
+</tr>
+
+<tr> 
+    <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ285voLYuYy49mnuXZ_WHxWl4st0oWq5no9Q&s" alt="Eurasian Otter" class="animal-img"></td> 
+    <td>Eurasian Otter</td> 
+    <td>Lutra lutra</td> 
+    <td>France</td> 
+    <td>8-12 years</td> 
+    <td>Near Threatened</td> 
+    <td>An aquatic mammal known for its playful nature.</td> 
+</tr>
+<tr> 
+    <td><img src="https://zooinstitutes.com/img/PicOfMonth/April%202016.jpg" alt="East Caucasian Tur" class="animal-img"></td> 
+    <td>East Caucasian Tur</td> 
+    <td>Capra cylindricornis</td> 
+    <td>Georgia</td> 
+    <td>10-15 years</td> 
+    <td>Near Threatened</td> 
+    <td>A mountain goat found in the Caucasus region.</td> 
+</tr>
+<tr> 
+    <td><img src="https://cdn.download.ams.birds.cornell.edu/api/v2/asset/242152111/900" alt="Caucasian Black Grouse" class="animal-img"></td> 
+    <td>Caucasian Black Grouse</td> 
+    <td>Tetrao mlokosiewiczi</td> 
+    <td>Georgia</td> 
+    <td>3-5 years</td> 
+    <td>Vulnerable</td> 
+    <td>A large game bird known for its elaborate courtship displays.</td> 
+</tr>
+<tr> 
+    <td><img src="https://lh3.googleusercontent.com/proxy/MGW9QaX7Xm3G0sVh3jDNDtlR8RI4zdQE4AGYK2BbwnnwZfz4PFh39qUaZ6tgXOXGMmcSD7yDhp0Q4_ouYryRHqYkEiXY" alt="European Wildcat" class="animal-img"></td> 
+    <td>European Wildcat</td> 
+    <td>Felis silvestris</td> 
+    <td>Germany</td> 
+    <td>10-12 years</td> 
+    <td>Least Concern</td> 
+    <td>A small feline known for its adaptability.</td> 
+</tr>
+<tr> 
+    <td><img src="https://a-z-animals.com/media/2022/03/vipera-berus-adder-shutterstock_1954243921.jpg" alt="Common European Adder" class="animal-img"></td> 
+    <td>Common European Adder</td> 
+    <td>Vipera berus</td> 
+    <td>Germany</td> 
+    <td>10-15 years</td> 
+    <td>Least Concern</td> 
+    <td>A venomous snake commonly found in various habitats.</td> 
+</tr>
+<tr> 
+    <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGK4GywJd8kNU3-G2A432FMvrTHufxGcURvA&s" alt="European Rabbit" class="animal-img"></td> 
+    <td>European Rabbit</td> 
+    <td>Oryctolagus cuniculus</td> 
+    <td>Germany</td> 
+    <td>9-12 years</td> 
+    <td>Least Concern</td> 
+    <td>A widely distributed mammal known for its burrowing behavior.</td> 
+</tr>
+<tr> 
+    <td><img src="https://www.earthandanimals.com/files/547756/catitems/Loggerhead_Sea_Turtle-d1d20e539024a00f6d888ce589c4bd0d.jpg" alt="Loggerhead Sea Turtle" class="animal-img"></td> 
+    <td>Loggerhead Sea Turtle</td> 
+    <td>Caretta caretta</td> 
+    <td>Greece</td> 
+    <td>50 years</td> 
+    <td>Vulnerable</td> 
+    <td>A marine turtle known for its long migrations.</td> 
+</tr>
+<tr> 
+    <td><img src="https://www.bto.org/sites/default/files/birdfacts/00151_Great%20Bustard_Chris%20Knights.jpg" alt="Great Bustard" class="animal-img"></td> 
+    <td>Great Bustard</td> 
+    <td> Otis tarda</td> 
+    <td>Hungary</td> 
+    <td>10-15 years</td> 
+    <td>Near Threatened</td> 
+    <td>One of the heaviest flying birds, known for its display behavior.</td> 
+</tr>
+<tr> 
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/IcelandicHorseInWinter.jpg/800px-IcelandicHorseInWinter.jpg" alt="Icelandic Horse" class="animal-img"></td> 
+    <td>Icelandic Horse</td> 
+    <td>Equus ferus caballus</td> 
+    <td>Iceland</td> 
+    <td>25-30 years</td> 
+    <td>Not Evaluated</td> 
+    <td>A unique horse breed known for its strength and sure-footedness.</td> 
+</tr>
+<tr> 
+    <td><img src="https://i.natgeofe.com/n/75c97a1f-3303-4dc8-bc93-9c4af9285ee2/3224350_3x2.jpg" alt="Arctic Fox" class="animal-img"></td> 
+    <td>Arctic Fox</td> 
+    <td>Vulpes lagopus</td> 
+    <td>Iceland</td> 
+    <td>3-6 years</td> 
+    <td>Least Concern</td> 
+    <td>A small fox adapted to cold environments.</td> 
+</tr>
+<tr> 
+    <td><img src="https://www.animal.photos/mammal/deer-red_files/red1.jpg" alt="Red Deer" class="animal-img"></td> 
+    <td>Red Deer</td> 
+    <td>Cervus elaphus</td> 
+    <td>Ireland</td> 
+    <td>10-15 years</td> 
+    <td>Least Concern</td> 
+    <td>A large deer species native to Ireland.</td> 
+</tr>
+<tr> 
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Barn_Owl%2C_Lancashire.jpg/800px-Barn_Owl%2C_Lancashire.jpg" alt="Barn Owl" class="animal-img"></td> 
+    <td>Barn Owl</td> 
+    <td>Tyto alba</td> 
+    <td>Ireland</td> 
+    <td>4-5 years</td> 
+    <td>Least Concern</td> 
+    <td>A nocturnal bird of prey known for its distinctive heart-shaped face.</td> 
+</tr>
+<tr> 
+    <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRekdU-PyrOdBw1pYc2a6OnUcv4J24e0hIhbw&s" alt="Italian Wall Lizard" class="animal-img"></td> 
+    <td>Italian Wall Lizard</td> 
+    <td>Podarcis sicula</td> 
+    <td>Italy</td> 
+    <td>5-7 years</td> 
+    <td>Least Concern</td> 
+    <td>A common lizard found throughout Italy.</td> 
+</tr>
+
+<tr> 
+    <td><img src="https://c02.purpledshub.com/uploads/sites/62/2022/05/White-tailed-eagle.-GettyImages-1297788743-a31991d.jpg" alt="White-tailed Eagle" class="animal-img"></td> 
+    <td>White-tailed Eagle</td> 
+    <td>Haliaeetus albicilla</td> 
+    <td>Lithuania</td> 
+    <td>20-30 years</td> 
+    <td>Least Concern</td> 
+    <td>A large bird of prey known for its impressive wingspan.</td> 
+</tr>
+<tr> 
+    <td><img src="https://cdn.britannica.com/82/154482-050-997CD9FA/Common-buzzard.jpg" alt="Common Buzzard" class="animal-img"></td> 
+    <td>Common Buzzard</td> 
+    <td>Buteo buteo</td> 
+    <td>Luxembourg</td> 
+    <td>10-15 years</td> 
+    <td>Least Concern</td> 
+    <td>A medium-sized bird of prey often seen soaring.</td> 
+</tr>
+<tr> 
+   <td><img src="https://cdn-attachments.timesofmalta.com/ccf58d291d3c04f9281af11c1cdb1eff1ee2d01c-1665564733-ea4bfb3e-960x640.jpg" alt="Maltese Hedgehog" class="animal-img"></td> 
+   <td>Maltese Hedgehog</td> 
+   <td>Erinaceus concolor</td> 
+   <td>Malta</td> 
+   <td>3-7 years</td> 
+   <td>Not Evaluated</td> 
+   <td>A small mammal known for its spiny coat.</td> 
+</tr>
+<tr> 
+   <td><img src="https://cdn.download.ams.birds.cornell.edu/api/v2/asset/168730821/900" alt="Blue Rock Thrush" class="animal-img"></td> 
+   <td>Blue Rock Thrush</td> 
+   <td>Monticola solitarius</td> 
+   <td>Malta</td> 
+   <td>3-5 years</td> 
+   <td>Least Concern</td> 
+   <td>A small bird known for its beautiful blue plumage.</td> 
+</tr>
+<tr> 
+    <td><img src="https://www.green-feathers.co.uk/cdn/shop/articles/chiffchaff-singing-wtml-john-bridges.jpg?v=1687345926" alt="Common Chiffchaff" class="animal-img"></td> 
+    <td>Common Chiffchaff</td> 
+    <td>Phyllos copus collybita</td> 
+    <td>Monaco</td> 
+    <td>3-4 years</td> 
+    <td>Least Concern</td> 
+    <td>A small bird known for its characteristic song.</td> 
+</tr>
+
+<tr> 
+    <td><img src="https://images.takeshape.io/86ce9525-f5f2-4e97-81ba-54e8ce933da7/dev/21f407e3-2624-4c06-992b-af35afdfc823/Reindeer%20dreamstime.jpeg?auto=compress%2Cformat&w=1440" alt="Reindeer" class="animal-img"></td> 
+    <td>Reindeer</td> 
+    <td>Rangifer tarandus</td> 
+    <td>Norway</td> 
+    <td>10-15 years</td> 
+    <td>Least Concern</td> 
+    <td>A species of deer known for its adaptation to cold climates.</td> 
+</tr>
+
+
+
+
+
+ </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="animalModal" tabindex="-1" role="dialog" aria-labelledby="animalModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="animalModalLabel">Animal Information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6 text-center modal-img-container">
+            <img id="modalAnimalImage" src="" alt="Animal" class="modal-img img-fluid">
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <span class="info-label">Animal Name: </span>
+              <span id="modalAnimalName" class="info-text"></span>
+            </div>
+            <div class="mb-3">
+              <span class="info-label">Scientific Name: </span>
+              <span id="modalScientificName" class="info-text"></span>
+            </div>
+            <div class="mb-3">
+              <span class="info-label">Country: </span>
+              <span id="modalCountry" class="info-text"></span>
+            </div>
+            <div class="mb-3">
+              <span class="info-label">Life Span: </span>
+              <span id="modalLifeSpan" class="info-text"></span>
+            </div>
+            <div class="mb-3">
+              <span class="info-label">IUCN Category: </span>
+              <span id="modalIUCN" class="info-text"></span>
+            </div>
+            <div class="mb-3">
+              <span class="info-label">Description: </span>
+              <span id="modalDescription" class="info-text"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const rows = document.querySelectorAll(".table tbody tr");
+
+  rows.forEach(row => {
+    const iucnCell = row.cells[5];  // Assuming IUCN Category is the 6th column
+    const category = iucnCell.textContent.trim().toLowerCase();
+
+    // Set text color based on category
+    switch (category) {
+      case "least concern":
+        iucnCell.style.color = "#2E8B57"; // green
+        break;
+      case "vulnerable":
+        iucnCell.style.color = "#FFD700"; // Yellow
+        break;
+      case "near threatened":
+        iucnCell.style.color = "#FFA500"; // Orange
+        break;
+      case "endangered":
+        iucnCell.style.color = "#FF6347"; // Red
+        break;
+      case "critically endangered":
+        iucnCell.style.color = "#8B0000"; // Dark red
+        break;
+      case "data deficient":
+        iucnCell.style.color = "#000000"; // Black
+        break;
+      default:
+        iucnCell.style.color = ""; // Default to normal text color
+    }
+  });
+});
+
+
+
+
+
+
+
+$(document).ready(function() {
+  $('.table tbody tr').click(function() {
+    var $row = $(this);
+    var image = $row.find('img').attr('src');
+    var animalName = $row.find('td:eq(1)').text();
+    var scientificName = $row.find('td:eq(2)').text();
+    var country = $row.find('td:eq(3)').text();
+    var lifeSpan = $row.find('td:eq(4)').text();
+    var iucn = $row.find('td:eq(5)').text();
+    var description = $row.find('td:eq(6)').text();
+
+    $('#modalAnimalImage').attr('src', image);
+    $('#modalAnimalName').text(animalName);
+    $('#modalScientificName').text(scientificName);
+    $('#modalCountry').text(country);
+    $('#modalLifeSpan').text(lifeSpan);
+    $('#modalIUCN').text(iucn);
+    $('#modalDescription').text(description);
+
+    $('#animalModal').modal('show');
+  });
+});
+</script>
+
+</body>
+</html>

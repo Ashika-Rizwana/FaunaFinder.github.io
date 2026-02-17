@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Exotic Animal Data Table</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+   body {
+      background-color: #001f3f; /* Navy blue background */
+    }
+   .table-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  margin: 50px auto;
+  width: 95%;
+  max-width: 1200px;
+}
+       .table-hover tbody tr:hover {
+      background-color: #f0f8ff;
+      cursor: pointer;
+    }
+    .table thead th {
+  text-align: center;
+  background-color: #2c3e50;
+  color: white;
+  padding: 15px;
+  font-weight: 600;
+}
+    .table td, .table th {
+      vertical-align: middle;
+      text-align: center;
+    }
+    .animal-img {
+      width: 80px;
+      height: auto;
+      border-radius: 5px;
+    }
+.modal-content {
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.modal-header {
+  background-color: #2c3e50;
+  color: white;
+  border-bottom: none;
+  padding: 1rem 1.5rem;
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.modal-title {
+  font-weight: bold;
+}
+
+.close {
+  color: white;
+}
+
+.close:hover {
+  color: #ddd;
+}
+
+.modal-img-container {
+  margin-bottom: 20px;
+}
+
+.modal-img {
+  max-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.info-label {
+  font-weight: bold;
+  color: #2c3e50;
+  display: inline-block;
+  min-width: 120px;
+}
+
+.info-text {
+  color: #34495e;
+}
+
+.mb-3 {
+  margin-bottom: 1rem;
+}
+.table tbody tr td:nth-child(3) {
+  font-style: italic;
+}
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="table-container">
+    <h2 class="text-center">Exotic Animals of North America</h2>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Animal Name</th>
+            <th>Scientific Name</th>
+            <th>Country</th>
+            <th>Life Span</th>
+            <th>IUCN Category</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><img src="https://assets3.thrillist.com/v1/image/2509244/1200x600/crop;;webp=auto;jpeg_quality=85.jpg" alt="Antiguan Racer" class="animal-img"></td>
+            <td>Antiguan Racer</td>
+            <td>Alsophis antiguae</td>
+            <td>Antigua and Barbuda</td>
+            <td>10 years</td>
+            <td>Critically Endangered</td>
+            <td>Once the rarest snake in the world, this harmless snake is now found on a few offshore islands.</td>
+          <tr>
+            <td><img src="https://birdfinding.info/wp-content/uploads/2018/12/WIWhistlingDuck2.jpg" alt="West Indian Whistling Duck" class="animal-img"></td>
+            <td>West Indian Whistling Duck</td>
+            <td>Dendrocygna arborea</td>
+            <td>Antigua and Barbuda</td>
+            <td>15-20 years</td>
+            <td>Near Threatened</td>
+            <td>A long-legged, rare duck known for its distinct whistling call and unique nesting habits.</td>
+<tr>
+            <td><img src="https://birdfinding.info/wp-content/uploads/2022/01/BahamaParrot12.jpg" alt="Grizzly Bear" class="animal-img"></td>
+            <td>Bahama Parrot</td>
+            <td>Amazona leucocephala bahamensis</td>
+            <td>Bahamas</td>
+            <td>40-50 years</td>
+            <td>Near Threatened</td>
+            <td>Known for its white head, this colorful parrot helps disperse seeds in the Bahamas’ pine forests.</td>
+          <tr>
+            <td><img src="https://static.wikia.nocookie.net/way-of-the-hunter-complete/images/8/8b/Wood_Bison.jpg/revision/latest?cb=20230816180808" alt="Wood Bison" class="animal-img"></td>
+            <td>Wood Bison</td>
+            <td>Bison bison athabascae</td>
+            <td>Canada</td>
+            <td>18–22 years</td>
+            <td>Near Threatened</td>
+            <td>One of North America's largest land mammals, known for its dense fur and large hump.</td>
+          </tr>
+          <tr>
+            <td><img src="https://www.earthrangers.com/public/content/wildwire/GrizzlyBear-project-image-e1718198068825.jpg" alt="Grizzly Bear" class="animal-img"></td>
+            <td>Grizzly Bear</td>
+            <td>Ursus arctos horribilis</td>
+            <td>Canada</td>
+            <td>20–25 years</td>
+            <td>Least Concern</td>
+            <td>Large, powerful bear species with a characteristic hump and brown fur.</td>
+          </tr>
+          <tr>
+            <td><img src="https://cdn.britannica.com/10/128910-050-5D8C90DC/Male-snowy-owl.jpg" alt="Snowy Owl" class="animal-img"></td>
+            <td>Snowy Owl</td>
+            <td>Bubo scandiacus</td>
+            <td>Canada</td>
+            <td>10 years</td>
+            <td>Least concern</td>
+            <td>Majestic white owl adapted to cold environments; often seen in arctic tundra.</td>
+          </tr>
+          <tr>
+            <td><img src="https://i.natgeofe.com/n/15c3e2ad-d060-48b4-ab26-e92b9308f721/01-florida-panther-fight-ctf020-6196_3x4.jpg" alt="Florida Panther" class="animal-img"></td>
+            <td>Florida Panther</td>
+            <td>Puma concolor coryi</td>
+            <td>United States</td>
+            <td>12–15 years</td>
+            <td>Critically Endangered</td>
+            <td>Rare and endangered subspecies of cougar found in Florida’s swamplands.</td>
+          </tr>
+          <tr>
+            <td><img src="https://www.beardsleyzoo.org/uploads/1/2/4/2/124214186/318_orig.jpg" alt="American Alligator" class="animal-img"></td>
+            <td>American Alligator</td>
+            <td> Alligator mississippiensis</td>
+            <td>United States</td>
+            <td>35–50 years</td>
+            <td>Least Concern</td>
+            <td>Large, iconic reptile of southeastern U.S., known for its powerful bite and scaly hide.</td>
+          </tr>
+          <tr>
+            <td><img src="https://www.birdsandblooms.com/wp-content/uploads/2023/09/G1EJ89.jpg" alt="California Condor" class="animal-img"></td>
+            <td>California Condor</td>
+            <td>Gymnogyps californianus</td>
+            <td>United States</td>
+            <td>45–60 years</td>
+            <td>Critically Endangered</td>
+            <td>North America's largest bird with a massive wingspan; critically endangered.</td>
+          </tr>
+          <tr>
+            <td><img src="https://images2.minutemediacdn.com/image/upload/c_fill,w_1200,ar_16:9,f_auto,q_auto,g_auto/images/voltaxMediaLibrary/mmsport/mentalfloss/01gwscsvw2yrt73s9sqj.jpg" alt="Axolotl" class="animal-img"></td>
+            <td>Axolotl</td>
+            <td>Ambystoma mexicanum</td>
+            <td>Mexico</td>
+            <td>10–15 years</td>
+            <td>Critically Endangered</td>
+            <td>Unique salamander that retains juvenile features into adulthood; capable of regenerating limbs.</td>
+          </tr>
+          <tr>
+            <td><img src="https://npr.brightspotcdn.com/dims4/default/86f8696/2147483647/strip/true/crop/990x792+0+0/resize/880x704!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Flegacy%2Fsites%2Fknau%2Ffiles%2F201903%2Fmexican-gray-wolf-in-snow.jpg.990x0_q80_crop-smart.jpg" alt="Mexican Wolf" class="animal-img"></td>
+            <td>Mexican Wolf</td>
+            <td>Canis lupus baileyi</td>
+            <td>Mexico</td>
+            <td>6–8 years</td>
+            <td>Critically Endangered</td>
+            <td>Smallest and rarest subspecies of the gray wolf, with a beautiful coat of gray and brown.</td>
+          </tr>
+          <tr>
+            <td><img src="https://cdn.britannica.com/98/244698-050-A4B4CEAD/vaquita-dolphine.jpg" alt="Vaquita" class="animal-img"></td>
+            <td>Vaquita</td>
+            <td>Phocoena sinus</td>
+            <td>Mexico</td>
+            <td>20–25 years</td>
+            <td>Critically Endangered</td>
+            <td>Rare and critically endangered small porpoise, native to Mexico’s Gulf of California.</td>
+          </tr>
+          <tr>
+            <td><img src="https://www.thealexandriazoo.com/images/animals/BlackHowlerMonkey03.jpg" alt="Black Howler Monkey" class="animal-img"></td>
+            <td>Black Howler Monkey</td>
+            <td>Alouatta pigra</td>
+            <td>Belize</td>
+            <td>15–20 years</td>
+            <td>Least Concern</td>
+            <td>Known for its loud howling, it's one of the loudest animals on Earth.</td>
+          </tr>
+          <tr>
+            <td><img src="https://chabilmarvillas.com/wp-content/uploads/2019/03/Belize-Tapir-National-Animal-of-Belize.jpg" alt="Baird's Tapir" class="animal-img"></td>
+            <td>Baird's Tapir</td>
+            <td>Tapirus bairdii</td>
+            <td>Belize</td>
+            <td>25-30 years</td>
+            <td>Endangered</td>
+            <td> Large herbivorous mammal with a long, flexible snout; Belize’s national animal.</td>
+          </tr>
+         
+           
+
+          <tr>
+            <td><img src="https://cdn.britannica.com/13/256113-050-AC268CEA/Morelets-crocodile-crocodylus-moreletii-reptile.jpg" alt="Morelet’s Crocodile" class="animal-img"></td>
+            <td>Morelet’s Crocodile</td>
+            <td>Crocodylus moreletii</td>
+            <td>Belize</td>
+            <td>50-65 years</td>
+            <td>Least Concern</td>
+            <td>A medium-sized crocodile native to freshwater habitats in Central America.</td>
+          </tr>
+          <tr>
+            <td><img src="https://images.squarespace-cdn.com/content/v1/5f22f7fc8a1f064a866c4e07/63e87e01-ec7c-48b4-bb56-a36a341795c2/Resplendent-quetzal-costa-rica.JPG" alt="Resplendent Quetzal" class="animal-img"></td>
+            <td>Resplendent Quetzal</td>
+            <td>Pharomachrus mocinno</td>
+            <td>Costa Rica</td>
+            <td>3–10 years</td>
+            <td>Near Threatened</td>
+            <td>Vibrantly colored bird with a long tail, revered in Mesoamerican cultures.</td>
+          </tr>
+          <tr>
+            <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Harpia_harpyja_001_800.jpg/640px-Harpia_harpyja_001_800.jpg" alt="Harpy Eagle" class="animal-img"></td>
+            <td>Harpy Eagle</td>
+            <td>Harpia harpyja</td>
+            <td>Costa Rica</td>
+            <td>25–35 years</td>
+            <td>Near Threatened</td>
+            <td>Powerful eagle known for its large size and impressive crest of feathers.
+</td>
+          </tr>
+          <tr>
+            <td><img src="https://lazoo.org/wp-content/uploads/2023/05/Ocelot-Young-Male-Ninja-JEP_5645-scaled.jpg" alt="Ocelot" class="animal-img"></td>
+            <td>Ocelot</td>
+            <td>Leopardus pardaliss</td>
+            <td>Costa Rica</td>
+            <td>10–20 years</td>
+            <td>Least concern</td>
+            <td>Medium-sized wild cat with distinctive golden fur and black spots.</td>
+          </tr>
+          <tr>
+            <td><img src="https://lazoo.org/wp-content/uploads/2023/05/Spider-Monkey-Male-Benjamin-JEP_7806-scaled.jpg" alt="Geoffroy's Spider Monkey" class="animal-img"></td>
+            <td>Geoffroy's Spider Monkey</td>
+            <td>Ateles geoffroyi</td>
+            <td>El Salvador</td>
+            <td>20–30 years</td>
+            <td>Endangered</td>
+            <td>Agile primate known for its long limbs and tail, which it uses as a fifth limb.</td>
+          </tr>
+          <tr>
+            <td><img src="https://pasopacifico.org/wp-content/uploads/2023/11/16635611766_91e48671f8_o-1024x683.jpg" alt="Jaguarundi" class="animal-img"></td>
+            <td>Jaguarundi</td>
+            <td>Herpailurus yagouaroundi</td>
+            <td>El Salvador</td>
+            <td>15 years</td>
+            <td>Least Concern</td>
+            <td>Small, slender wild cat with a weasel-like appearance and uniform coat color.</td>
+          </tr>
+          <tr>
+            <td><img src="https://static.wikia.nocookie.net/wildlife-of-the-american-south/images/7/7b/Armadillo.jpg/revision/latest?cb=20230205031612" alt="Nine-banded Armadillo" class="animal-img"></td>
+            <td>Nine-banded Armadillo</td>
+            <td>Dasypus novemcinctus</td>
+            <td>El Salvador</td>
+            <td>12–15 years</td>
+            <td>Least Concern</td>
+            <td>Armored mammal known for its ability to curl into a ball for defense..</td>
+          </tr>
+          <tr>
+            <td><img src="https://neprimateconservancy.org/wp-content/uploads/2024/09/red-handed-howler-%C2%A9-Roberto-Almeida-iNaturalist-cc-r-crop.jpg" alt="Guatemalan Black Howler" class="animal-img"></td>
+            <td>Guatemalan Black Howler</td>
+            <td>Alouatta pigra</td>
+            <td>Guatemala</td>
+            <td>15–20 years</td>
+            <td>Endangered</td>
+            <td>Black-furred primate with a loud, resonant howl to communicate across distances.</td>
+          </tr>
+          <tr>
+            <td><img src="https://s3.animalia.bio/animals/photos/full/original/2560px-grey-brocket-deer-28mazama-gouazoubira29-female-284836817470129.webp" alt="Brocket Deer" class="animal-img"></td>
+            <td>Brocket Deer</td>
+            <td>Mazama americana</td>
+            <td>Guatemala</td>
+            <td>7–10 years</td>
+            <td>Least Concern</td>
+            <td>Small deer found in dense forests, known for its short, slender antlers.</td>
+          </tr>
+          <tr>
+            <td><img src="https://s3.animalia.bio/animals/photos/full/1.25x1/1542px-yaguatirica3jpg.webp?id=354570ad310e22bc0f5c53e936d794f0" alt="Margay" class="animal-img"></td>
+            <td>Margay</td>
+            <td>Leopardus wiedii</td>
+            <td>Guatemala</td>
+            <td>18–20 years</td>
+            <td>Near Threatened</td>
+            <td>Tree-dwelling wild cat with remarkable climbing ability and expressive, spotted coat.</td>
+          </tr>
+          <tr>
+            <td><img src="https://media.istockphoto.com/id/1085787000/photo/white-faced-capuchin-monkeys-mother-and-baby-in-tortuguero-national-park-costa-rica.jpg?s=612x612&w=0&k=20&c=2r8hKtlFGN9AVdma_wfClyA0_N5DTqDv70BW21yPWKA=" alt="White-faced Capuchin" class="animal-img"></td>
+            <td>White-faced Capuchin</td>
+            <td>Cebus capucinus</td>
+            <td>Honduras</td>
+            <td>15–25 years</td>
+            <td>Least Concern</td>
+            <td>Intelligent, social monkey known for its distinctive white face and tool usage.</td>
+          </tr>
+          <tr>
+            <td><img src="https://static.wikia.nocookie.net/naturerules1/images/1/14/Iggy41-1.jpg/revision/latest?cb=20200601171737" alt="Green Iguana" class="animal-img"></td>
+            <td>Green Iguana</td>
+            <td>Iguana iguana</td>
+            <td>Honduras</td>
+            <td>20 years</td>
+            <td>Least Concern</td>
+            <td>Large, arboreal lizard popular for its vibrant green color and long tail.</td>
+          </tr>
+          <tr>
+            <td><img src="https://www.zoonewengland.org/media/zn1jwsrj/scarletmacaw-gallery6.jpg" alt="Scarlet Macaw" class="animal-img"></td>
+            <td>Scarlet Macaw</td>
+            <td>Ara macao</td>
+            <td>Honduras</td>
+            <td>40–50 years</td>
+            <td>Least Concern</td>
+            <td>Large, vividly colored parrot known for its striking red, yellow, and blue feathers.</td>
+          </tr>
+                 </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+            
+
+
+
+
+
+
+        </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="animalModal" tabindex="-1" role="dialog" aria-labelledby="animalModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="animalModalLabel">Animal Information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6 text-center modal-img-container">
+            <img id="modalAnimalImage" src="" alt="Animal" class="modal-img img-fluid">
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <span class="info-label">Animal Name: </span>
+              <span id="modalAnimalName" class="info-text"></span>
+            </div>
+            <div class="mb-3">
+              <span class="info-label">Scientific Name: </span>
+              <span id="modalScientificName" class="info-text"></span>
+            </div>
+            <div class="mb-3">
+              <span class="info-label">Country: </span>
+              <span id="modalCountry" class="info-text"></span>
+            </div>
+            <div class="mb-3">
+              <span class="info-label">Life Span: </span>
+              <span id="modalLifeSpan" class="info-text"></span>
+            </div>
+            <div class="mb-3">
+              <span class="info-label">IUCN Category: </span>
+              <span id="modalIUCN" class="info-text"></span>
+            </div>
+            <div class="mb-3">
+              <span class="info-label">Description: </span>
+              <span id="modalDescription" class="info-text"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+  const rows = document.querySelectorAll(".table tbody tr");
+
+  rows.forEach(row => {
+    const iucnCell = row.cells[5];  // Assuming IUCN Category is the 6th column
+    const category = iucnCell.textContent.trim().toLowerCase();
+
+    // Set text color based on category
+    switch (category) {
+      case "least concern":
+        iucnCell.style.color = "#2E8B57"; // green
+        break;
+      case "vulnerable":
+        iucnCell.style.color = "#FFD700"; // Yellow
+        break;
+      case "near threatened":
+        iucnCell.style.color = "#FFA500"; // Orange
+        break;
+      case "endangered":
+        iucnCell.style.color = "#FF6347"; // Red
+        break;
+      case "critically endangered":
+        iucnCell.style.color = "#8B0000"; // Dark red
+        break;
+      case "data deficient":
+        iucnCell.style.color = "#000000"; // Black
+        break;
+      default:
+        iucnCell.style.color = ""; // Default to normal text color
+    }
+  });
+});
+
+
+
+
+
+
+$(document).ready(function() {
+  $('.table tbody tr').click(function() {
+    var $row = $(this);
+    var image = $row.find('img').attr('src');
+    var animalName = $row.find('td:eq(1)').text();
+    var scientificName = $row.find('td:eq(2)').text();
+    var country = $row.find('td:eq(3)').text();
+    var lifeSpan = $row.find('td:eq(4)').text();
+    var iucn = $row.find('td:eq(5)').text();
+    var description = $row.find('td:eq(6)').text();
+
+    $('#modalAnimalImage').attr('src', image);
+    $('#modalAnimalName').text(animalName);
+    $('#modalScientificName').text(scientificName);
+    $('#modalCountry').text(country);
+    $('#modalLifeSpan').text(lifeSpan);
+    $('#modalIUCN').text(iucn);
+    $('#modalDescription').text(description);
+
+    $('#animalModal').modal('show');
+  });
+});
+</script>
+
+</body>
+</html>

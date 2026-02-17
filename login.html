@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | FaunaFinder</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+            url('images/login1.jpeg') center/cover fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            width: 400px;
+            max-width: 90%;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+        }
+
+        h1 {
+            color: #2e2e2e;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        input:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 14px;
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        .links {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .links a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .error {
+            background-color: #ffe6e6;
+            color: #e74c3c;
+            display: block;
+        }
+
+        .success {
+            background-color: #e6ffe6;
+            color: #27ae60;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>🦁 Login to FaunaFinder</h1>
+        
+        <div id="message" class="message"></div>
+        
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <div class="links">
+            <p>Don't have an account? <a href="register.html">Register now</a></p>
+            <p><a href="index.html">← Back to Home</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const message = document.getElementById('message');
+            
+            // Get all users from localStorage
+            const users = JSON.parse(localStorage.getItem('faunaFinderUsers')) || [];
+            
+            // Find user
+            const user = users.find(u => u.username === username && u.password === password);
+            
+            if (user) {
+                // Save current user
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                
+                message.textContent = 'Login successful! Redirecting...';
+                message.className = 'message success';
+                
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1500);
+            } else {
+                message.textContent = 'Invalid username or password!';
+                message.className = 'message error';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaunaFinder - Discover Wildlife</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html"> FaunaFinder</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="map.html">Animal Atlas</a></li>
+            <li><a href="conservation.html">Conservation</a></li>
+            <li><a href="about.html">About</a></li>
+            <li id="authLink"><a href="login.html" class="login-btn">Login</a></li>
+            <li id="userInfo" style="display:none;">
+                Welcome, <strong id="userName"></strong>!
+                <button id="logoutBtn">Logout</button>
+            </li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Discover the Wonders of Wildlife</h1>
+            <p>Explore exotic animals, contribute sightings, and help conserve our planet's fauna.</p>
+            <a href="explore.html" class="cta-btn">Get Started</a>
+        </div>
+        <!-- Image Slider -->
+        <div class="image-slider">
+            <div class="slider fade">
+                <img src="images/wbtwol.jpg" alt="Wolves in the wild">
+            </div>
+            <div class="slider fade">
+                <img src="images/wbtur.jpg" alt="Sea turtle swimming">
+            </div>
+            <div class="slider fade">
+                <img src="images/wbel.jpg" alt="Elephant herd">
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2>What You Can Do</h2>
+        <div class="feature-cards">
+            <div class="card">
+                <a href="explore.html">
+                    <i class="fas fa-search fa-3x"></i>
+                    <h3>Explore Wildlife</h3>
+                    <p>Discover exotic species from around the world.</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="map.html">
+                    <i class="fas fa-globe fa-3x"></i>
+                    <h3>Animal Atlas</h3>
+                    <p>Explore animal habitats on our interactive map.</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="conservation.html">
+                    <i class="fas fa-leaf fa-3x"></i>
+                    <h3>Conservation</h3>
+                    <p>Learn how to help preserve endangered species.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 FaunaFinder. All Rights Reserved.</p>
+        <p>Email: faunafinder@wildlife.org | Phone: 7209898876</p>
+    </footer>
+
+    <script src="js/slider.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | FaunaFinder</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+            url('images/login1.jpeg') center/cover fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px 0;
+            margin: 0;
+        }
+
+        .registration-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            width: 400px;
+            max-width: 90%;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: slideIn 0.5s ease-out;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+        }
+
+        h1 {
+            color: #2e2e2e;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            text-align: left;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        input:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        .occupation-options {
+            display: flex;
+            justify-content: space-around;
+            margin: 10px 0;
+        }
+
+        .occupation-options label {
+            display: inline;
+            font-weight: normal;
+            margin: 0 5px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 14px;
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        .links {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .links a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .error {
+            background-color: #ffe6e6;
+            color: #e74c3c;
+            display: block;
+        }
+
+        .success {
+            background-color: #e6ffe6;
+            color: #27ae60;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-container">
+        <h1>🦁 Register for FaunaFinder</h1>
+        
+        <div id="message" class="message"></div>
+        
+        <form id="registerForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required minlength="3">
+
+            <label for="email">Email ID:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required minlength="6">
+
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" name="fullname" required>
+
+            <label for="phone">Mobile Number:</label>
+            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" placeholder="10 digits">
+
+            <label for="address">Residential Address:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label>Occupation:</label>
+            <div class="occupation-options">
+                <input type="radio" id="student" name="occupation" value="Student" required>
+                <label for="student">Student</label>
+                
+                <input type="radio" id="working" name="occupation" value="Working">
+                <label for="working">Working</label>
+                
+                <input type="radio" id="other" name="occupation" value="Other">
+                <label for="other">Other</label>
+            </div>
+
+            <button type="submit">Register</button>
+        </form>
+        
+        <div class="links">
+            <p>Already have an account? <a href="login.html">Login here</a></p>
+            <p><a href="index.html">← Back to Home</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const message = document.getElementById('message');
+            
+            // Get form data
+            const userData = {
+                username: document.getElementById('username').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                password: document.getElementById('password').value,
+                fullname: document.getElementById('fullname').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                address: document.getElementById('address').value.trim(),
+                dob: document.getElementById('dob').value,
+                occupation: document.querySelector('input[name="occupation"]:checked').value,
+                registeredOn: new Date().toISOString()
+            };
+            
+            // Validate
+            if (userData.username.length < 3) {
+                message.textContent = 'Username must be at least 3 characters!';
+                message.className = 'message error';
+                return;
+            }
+            
+            if (userData.password.length < 6) {
+                message.textContent = 'Password must be at least 6 characters!';
+                message.className = 'message error';
+                return;
+            }
+            
+            if (!/^[0-9]{10}$/.test(userData.phone)) {
+                message.textContent = 'Phone number must be exactly 10 digits!';
+                message.className = 'message error';
+                return;
+            }
+            
+            // Get existing users
+            const users = JSON.parse(localStorage.getItem('faunaFinderUsers')) || [];
+            
+            // Check if username or email already exists
+            if (users.some(u => u.username === userData.username)) {
+                message.textContent = 'Username already exists!';
+                message.className = 'message error';
+                return;
+            }
+            
+            if (users.some(u => u.email === userData.email)) {
+                message.textContent = 'Email already registered!';
+                message.className = 'message error';
+                return;
+            }
+            
+            // Add new user
+            users.push(userData);
+            localStorage.setItem('faunaFinderUsers', JSON.stringify(users));
+            
+            message.textContent = 'Registration successful! Redirecting to login...';
+            message.className = 'message success';
+            
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

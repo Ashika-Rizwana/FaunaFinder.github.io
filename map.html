@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exotic Animals by Continent</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Reset some browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            color: white;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Fixed background that doesn't interfere with map */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2074&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px);
+            z-index: -1;
+        }
+
+        /* Navigation bar */
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px 30px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1002;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .login-btn {
+            background: #4CAF50;
+        }
+
+        .login-btn:hover {
+            background: #45a049;
+        }
+
+        /* Main content */
+        .main-content {
+            margin-top: 80px;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 3.5rem;
+            margin: 20px 0 30px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .continent-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .continent-box {
+            width: 300px;
+            height: 150px;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .continent-box:hover {
+            transform: scale(1.05);
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Different background colors for each continent */
+        #africa-box { background-color: rgba(255, 69, 0, 0.7); }
+        #asia-box { background-color: rgba(34, 193, 195, 0.7); }
+        #europe-box { background-color: rgba(0, 102, 204, 0.7); }
+        #north-america-box { background-color: rgba(0, 204, 0, 0.7); }
+        #south-america-box { background-color: rgba(255, 255, 0, 0.7); }
+        #australia-box { background-color: rgba(255, 20, 147, 0.7); }
+
+        /* Map container styles - FIXED */
+        .map-full {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2000; /* Higher z-index to appear above everything */
+            width: 90%;
+            height: 85%;
+            border: 3px solid #333;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .full-map {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+
+        /* Close button */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            z-index: 2001;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .close-btn:hover {
+            background-color: #c0392b;
+        }
+
+        /* Animal icon styling */
+        .animal-icon {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            color: black;
+            font-weight: bold;
+            border: 2px solid #333;
+            font-size: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Tooltip styling */
+        .custom-tooltip {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            max-width: 250px;
+            border: 1px solid #ddd;
+        }
+
+        .custom-tooltip img {
+            border-radius: 5px;
+            margin-bottom: 8px;
+        }
+
+        .custom-tooltip h3 {
+            margin: 5px 0;
+            color: #333;
+        }
+
+        .custom-tooltip p {
+            margin: 3px 0;
+            color: #666;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .continent-box {
+                width: 100%;
+                height: 120px;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .map-full {
+                width: 95%;
+                height: 80%;
+            }
+        }
+
+        /* Ensure map tiles are visible */
+        .leaflet-container {
+            background: #f8f8f8;
+        }
+
+        .leaflet-tile-pane {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+  <!-- Navigation - matching explore.html style -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">FaunaFinder</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="map.html" style="color: #e74c3c;">Animal Atlas</a></li> <!-- Highlight current page -->
+            <li><a href="conservation.html">Conservation</a></li>
+            <li><a href="about.html">About</a></li>
+            <li id="authLink"><a href="login.html" class="login-btn">Login</a></li>
+            <li id="userInfo" style="display:none;">
+                Welcome, <strong id="userName"></strong>!
+                <button id="logoutBtn">Logout</button>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h2>Explore Exotic Animals by Continent</h2>
+
+        <!-- Continent Boxes Container -->
+        <div class="continent-container">
+            <div id="africa-box" class="continent-box" onclick="openMap('africa')">Africa</div>
+            <div id="asia-box" class="continent-box" onclick="openMap('asia')">Asia</div>
+            <div id="europe-box" class="continent-box" onclick="openMap('europe')">Europe</div>
+            <div id="north-america-box" class="continent-box" onclick="openMap('north-america')">North America</div>
+            <div id="south-america-box" class="continent-box" onclick="openMap('south-america')">South America</div>
+            <div id="australia-box" class="continent-box" onclick="openMap('australia')">Australia</div>
+        </div>
+    </div>
+
+    <!-- Full-size maps (initially hidden) -->
+    <div id="africa-full" class="map-full">
+        <div id="africa-full-map" class="full-map"></div>
+    </div>
+    <div id="asia-full" class="map-full">
+        <div id="asia-full-map" class="full-map"></div>
+    </div>
+    <div id="europe-full" class="map-full">
+        <div id="europe-full-map" class="full-map"></div>
+    </div>
+    <div id="north-america-full" class="map-full">
+        <div id="north-america-full-map" class="full-map"></div>
+    </div>
+    <div id="south-america-full" class="map-full">
+        <div id="south-america-full-map" class="full-map"></div>
+    </div>
+    <div id="australia-full" class="map-full">
+        <div id="australia-full-map" class="full-map"></div>
+    </div>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="js/map.js"></script>
+    
+    <script>
+        // Additional check to ensure map.js is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Map page loaded, waiting for continent click...');
+        });
+    </script>
+</body>
+</html>

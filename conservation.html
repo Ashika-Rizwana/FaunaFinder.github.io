@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conservation | FaunaFinder</title>
+    <link rel="stylesheet" href="css/conservation.css">
+</head>
+<body>
+    <!-- Navbar -->
+<nav class="navbar">
+    <div class="logo">
+        <a href="index.html">FaunaFinder</a>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="map.html">Animal Atlas</a></li>
+        <li><a href="conservation.html" style="color: #e74c3c;">Conservation</a></li> <!-- Highlight current page -->
+        <li><a href="about.html">About</a></li>
+        <li id="authLink"><a href="login.html" class="login-btn">Login</a></li>
+        <li id="userInfo" style="display:none;">
+            Welcome, <strong id="userName"></strong>!
+            <button id="logoutBtn">Logout</button>
+        </li>
+    </ul>
+</nav>
+
+<!-- Add padding to body to account for fixed navbar -->
+<style>
+    body {
+        padding-top: 80px;
+    }
+    /* Navbar styles - matching explore.html */
+        .navbar {
+            background-color: #2c3e50;
+            padding: 20px 10px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #e74c3c;
+        }
+
+        .login-btn {
+            background-color: #4CAF50;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+
+        .login-btn:hover {
+            background-color: #45a049;
+            color: white !important;
+        }
+
+        #userInfo {
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #logoutBtn {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        #logoutBtn:hover {
+            background-color: #c0392b;
+        }
+
+</style>
+
+    <section class="hero-images">
+        <img src="https://iucn.org/sites/default/files/styles/article_image/public/2023-10/2.-waza-council-and-eaza-directors-days-meetings-at-beauval-zoo.-by-kira-mileham.jpeg?h=4521fff0&itok=RGsrwLwz" alt="Wildlife Conservation">
+        <img src="https://www.tigersafariindia.com/blog/wp-content/uploads/2023/05/list-of-IUCN-red-list-endangered-1024x576.jpg" alt="Endangered Species">
+        <img src="https://c4.wallpaperflare.com/wallpaper/250/326/417/africa-turtle-nature-blue-wallpaper-preview.jpg" alt="Sea Turtle">
+    </section>
+    
+    <main>
+        <section class="grid-container">
+            <section class="why-conserve">
+                <h2>Why is Wildlife Conservation Important?</h2>
+                <p>Wildlife conservation is critical for ensuring the health of our planet and the survival of countless species. Here are some key reasons why wildlife conservation matters.</p>
+            </section>
+            
+            <section class="ecosystem-balance">
+                <h2>How Does Wildlife Contribute to Ecosystem Balance?</h2>
+                <p>Wildlife plays a vital role in maintaining the delicate balance of ecosystems. Each species, whether a predator or prey, contributes to a complex web of life.</p>
+                <ul>
+                    <li>Predators help regulate herbivore populations, preventing overgrazing.</li>
+                    <li>Plant diversity is maintained, supporting other wildlife and providing essential ecosystem services.</li>
+                    <li>The loss of even a single species can lead to significant ecological disruptions.</li>
+                </ul>
+            </section>
+
+            <section class="biodiversity">
+                <h2>Why is Biodiversity Important for Our Future?</h2>
+                <p>Biodiversity refers to the variety of life forms on Earth and is crucial for the resilience of ecosystems.</p>
+                <p>Protecting wildlife ensures future generations have access to invaluable resources for agriculture, medicine, and scientific research.</p>
+            </section>
+
+            <section class="economic-value">
+                <h2>What is the Economic Value of Wildlife Conservation?</h2>
+                <p>Wildlife conservation significantly impacts economic stability. Many communities rely on wildlife and natural resources for their livelihoods.</p>
+                <ul>
+                    <li><strong>Ecotourism:</strong> Activities like safaris generate billions of dollars annually.</li>
+                    <li><strong>Sustainable industries:</strong> Fishing, forestry, and agriculture depend on healthy wildlife populations.</li>
+                </ul>
+            </section>
+
+            <section class="cultural-heritage">
+                <h2>How Does Wildlife Influence Cultural Heritage?</h2>
+                <p>Wildlife holds deep cultural significance for many societies. Indigenous communities often have spiritual and cultural ties to their local wildlife.</p>
+                <ul>
+                    <li>Protecting wildlife honors these cultural connections.</li>
+                    <li>Wildlife inspires art, literature, and cultural practices.</li>
+                </ul>
+            </section>
+
+            <section class="global-challenges">
+                <h2>How Can Wildlife Conservation Combat Global Challenges?</h2>
+                <p>Wildlife conservation is essential for addressing pressing global challenges, such as climate change and habitat loss.</p>
+                <ul>
+                    <li>Conserving wildlife habitats can mitigate climate change impacts.</li>
+                    <li>Protecting natural habitats helps reduce the risk of species extinction.</li>
+                </ul>
+            </section>
+        </section>
+
+        <section class="animal-list">
+            <h2>Highlighted Endangered Species</h2>
+            <div class="species-grid">
+                <div class="species">
+                    <img src="https://animalgator.com/wp-content/uploads/2024/09/Javan-Rhinoceros.jpg" alt="Javan Rhino">
+                    <h3>Javan Rhino</h3>
+                    <p>Critically endangered due to habitat loss and poaching.</p>
+                </div>
+                <div class="species">
+                    <img src="https://files.worldwildlife.org/wwfcmsprod/images/SCR_290360hawskbill_why_matter_LG.jpg/carousel_small/3lnekn9qn3_SCR_290360hawskbill_why_matter_LG.jpg" alt="Hawksbill Turtle">
+                    <h3>Hawksbill Turtle</h3>
+                    <p>Critically endangered due to illegal trade.</p>
+                </div>
+                <div class="species">
+                    <img src="https://www.gorillatrekkingtoursandsafaris.com/wp-content/uploads/2021/08/eastern-gorilla-1024x682-1.jpg" alt="Eastern Lowland Gorilla">
+                    <h3>Eastern Lowland Gorilla</h3>
+                    <p>Critically endangered due to habitat loss.</p>
+                </div>
+                <div class="species">
+                    <img src="https://earth.org/wp-content/uploads/2021/08/1-1200x675.png" alt="Orangutan">
+                    <h3>Orangutan</h3>
+                    <p>Critically endangered due to deforestation.</p>
+                </div>
+                <div class="species">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/African_Wild_Dog_at_Working_with_Wildlife.jpg/1200px-African_Wild_Dog_at_Working_with_Wildlife.jpg" alt="African Wild Dog">
+                    <h3>African Wild Dog</h3>
+                    <p>Endangered due to habitat loss.</p>
+                </div>
+                <div class="species">
+                    <img src="https://files.worldwildlife.org/wwfcmsprod/images/asian_elephants_kui_buri_thailand/story_full_width/2ingnp272i_Asian_elephant_Kuiburi_Thailand.jpg" alt="Asian Elephant">
+                    <h3>Asian Elephant</h3>
+                    <p>Endangered due to habitat fragmentation.</p>
+                </div>
+                <div class="species">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Mustela_nigripes_2.jpg" alt="Black-footed Ferret">
+                    <h3>Black-footed Ferret</h3>
+                    <p>Endangered due to habitat loss.</p>
+                </div>
+                <div class="species">
+                    <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTw9XZyJ7SW5UmNropmaslWHyDNSglwIrSAWG7RaJPNjBKE2ccx" alt="Vaquita">
+                    <h3>Vaquita</h3>
+                    <p>Critically endangered due to bycatch.</p>
+                </div>
+                <div class="species">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Sumatran_Tiger_Berlin_Tierpark.jpg" alt="Sumatran Tiger">
+                    <h3>Sumatran Tiger</h3>
+                    <p>Critically endangered due to poaching.</p>
+                </div>
+                <div class="species">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Red_Panda_%2824986761703%29.jpg" alt="Red Panda">
+                    <h3>Red Panda</h3>
+                    <p>Endangered due to deforestation.</p>
+                </div>
+                <div class="species">
+                    <img src="https://files.worldwildlife.org/wwfcmsprod/images/Snow_Leopard_hero_species_2021/hero_small/8hwbyi3z8p_species_snowleopard_hero.jpg" alt="Snow Leopard">
+                    <h3>Snow Leopard</h3>
+                    <p>Vulnerable due to habitat loss.</p>
+                </div>
+                <div class="species">
+                    <img src="https://www.thoughtco.com/thmb/SFBcmcnOjeaSxV61uwvnucVceH8=/2857x1997/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-492627502-910d47263dbd46d0877e3ebe6c9f6d85.jpg" alt="Sun Bear">
+                    <h3>Sun Bear</h3>
+                    <p>Vulnerable due to habitat destruction.</p>
+                </div>
+            </div>
+        </section>
+
+        <center>
+            <section class="iucn-categories">
+                <h2>Categories of the IUCN Red List</h2>
+                <div class="categories-grid">
+                    <div class="category box-extinct">
+                        <h3>Extinct (EX)</h3>
+                        <p>No known individuals remaining.</p>
+                    </div>
+                    <div class="category box-extinct-wild">
+                        <h3>Extinct in the Wild (EW)</h3>
+                        <p>Only known from captivity.</p>
+                    </div>
+                    <div class="category box-critically-endangered">
+                        <h3>Critically Endangered (CR)</h3>
+                        <p>Extremely high risk of extinction.</p>
+                    </div>
+                    <div class="category box-endangered">
+                        <h3>Endangered (EN)</h3>
+                        <p>High risk of extinction.</p>
+                    </div>
+                    <div class="category box-vulnerable">
+                        <h3>Vulnerable (VU)</h3>
+                        <p>At risk of becoming endangered.</p>
+                    </div>
+                    <div class="category box-near-threatened">
+                        <h3>Near Threatened (NT)</h3>
+                        <p>May become endangered soon.</p>
+                    </div>
+                </div>
+            </section>
+        </center>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 IUCN Conservation Efforts | Join us in making a difference for the planet.</p>
+    </footer>
+</body>
+</html>

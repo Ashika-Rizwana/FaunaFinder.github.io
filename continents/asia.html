@@ -1,0 +1,551 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Interactive Exotic Animal Data Table - Asia</title> 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
+  <style> 
+   body { 
+      background-color: #001f3f; 
+    } 
+   .table-container { 
+      background-color: #ffffff; 
+      padding: 20px; 
+      border-radius: 12px; 
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); 
+      margin: 50px auto; 
+      width: 95%; 
+      max-width: 1200px; 
+    } 
+   .table-hover tbody tr:hover { 
+      background-color: #f0f8ff; 
+      cursor: pointer; 
+    } 
+   .table thead th { 
+      text-align: center; 
+      background-color: #2c3e50; 
+      color: white; 
+      padding: 15px; 
+      font-weight: 600; 
+    } 
+   .table td, .table th { 
+      vertical-align: middle; 
+      text-align: center; 
+    } 
+   .animal-img { 
+      width: 80px; 
+      height: auto; 
+      border-radius: 5px; 
+    } 
+   .modal-content { 
+      border-radius: 15px; 
+      overflow: hidden; 
+    } 
+   .modal-header { 
+      background-color: #2c3e50; 
+      color: white; 
+      border-bottom: none; 
+      padding: 1rem 1.5rem; 
+    } 
+   .modal-body { 
+      padding: 2rem; 
+    } 
+   .modal-title { 
+      font-weight: bold; 
+    } 
+   .close { 
+      color: white; 
+    } 
+   .close:hover { 
+      color: #ddd; 
+    } 
+   .modal-img-container { 
+      margin-bottom: 20px; 
+    } 
+   .modal-img { 
+      max-width: 300px; 
+      border-radius: 10px; 
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    } 
+   .info-label { 
+      font-weight: bold; 
+      color: #2c3e50; 
+      display: inline-block; 
+      min-width: 120px; 
+    } 
+   .info-text { 
+      color: #34495e; 
+    } 
+   .mb-3 { 
+      margin-bottom: 1rem; 
+    } 
+   .table tbody tr td:nth-child(3) { 
+      font-style: italic; 
+    } 
+  </style> 
+</head> 
+<body> 
+
+<div class="container-fluid"> 
+  <div class="table-container"> 
+    <h2 class="text-center">Exotic Animals of Asia</h2> 
+    <div class="table-responsive"> 
+      <table class="table table-bordered table-hover"> 
+        <thead> 
+          <tr> 
+            <th>Image</th> 
+            <th>Animal Name</th> 
+            <th>Scientific Name</th> 
+            <th>Country</th> 
+            <th>Life Span</th> 
+            <th>IUCN Category</th> 
+            <th>Description</th> 
+          </tr> 
+        </thead> 
+        <tbody> 
+          <tr> 
+            <td><img src="https://files.worldwildlife.org/wwfcmsprod/images/Panda_in_Tree/story_full_width/8u3k0zn66i_Large_WW170579.jpg" alt="Giant Panda" class="animal-img"></td> 
+            <td>Giant Panda</td> 
+            <td>Ailuropoda melanoleuca</td> 
+            <td>China</td> 
+            <td>20-30 years</td> 
+            <td>Vulnerable</td> 
+            <td>Iconic with its black and white fur, the panda is native to China's bamboo forests.</td> 
+          </tr>
+          <tr> 
+            <td><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/2012_Suedchinesischer_Tiger.JPG" alt="South China Tiger" class="animal-img"></td> 
+            <td>South China Tiger</td> 
+            <td>Panthera tigris amoyensis</td> 
+            <td>China</td> 
+            <td>15-20 years</td> 
+            <td>Critically Endangered</td> 
+            <td>One of the world's rarest tiger subspecies, distinguished by its unique striping.</td> 
+          </tr>
+          <tr> 
+            <td><img src="https://www.joelsartore.com/wp-content/uploads/stock/ANI112/ANI112-00069.jpg" alt="Chinese Giant Salamander" class="animal-img"></td> 
+            <td>Chinese Giant Salamander</td> 
+            <td>Andrias davidianus</td> 
+            <td>China</td> 
+            <td>50+ years</td> 
+            <td>Critically Endangered</td> 
+            <td>The world's largest amphibian, inhabiting mountain streams.</td> 
+          </tr>
+          <tr> 
+            <td><img src="https://tigers-world.com/wp-content/uploads/Bengal.jpg" alt="Bengal Tiger" class="animal-img"></td> 
+            <td>Bengal Tiger</td> 
+            <td>Panthera tigris tigris</td> 
+            <td>India</td> 
+            <td>10-15 years</td> 
+            <td>Endangered</td> 
+            <td>India's national animal, known for its vibrant orange coat and black stripes.</td> 
+          </tr>
+          <tr> 
+            <td><img src="https://static.wikia.nocookie.net/fictionrulezforever/images/a/ab/Indian_elephant_%28Male%29.jpg/revision/latest?cb=20220919211544" alt="Indian Elephant" class="animal-img"></td> 
+            <td>Indian Elephant</td> 
+            <td>Elephas maximus indicus</td> 
+            <td>India</td> 
+            <td>60-70 years</td> 
+            <td>Endangered</td> 
+            <td>This intelligent and majestic animal has rounded ears and inhabits forests.</td> 
+          </tr>
+          <tr> 
+            <td><img src="https://bigcatswildcats.com/wp-content/uploads/2024/09/Asiatic-lion-walking.jpg" alt="Asiatic Lion" class="animal-img"></td> 
+            <td>Asiatic Lion</td> 
+            <td>Panthera leo persica</td> 
+            <td>India</td> 
+            <td>16-18 years</td> 
+            <td>Endangered</td> 
+            <td>Unique to India's Gir Forest, this lion is smaller and has a characteristic belly fold.</td> 
+          </tr>
+          <tr> 
+            <td><img src="https://c.files.bbci.co.uk/9D0E/production/_126060204_mediaitem126060203.jpg" alt="Japanese Macaque" class="animal-img"></td> 
+            <td>Japanese Macaque</td> 
+            <td>Macaca fuscata</td> 
+            <td>Japan</td> 
+            <td>27-32 years</td> 
+            <td>Least Concern</td> 
+            <td>Known as "snow monkeys," famous for bathing in hot springs.</td> 
+          </tr>
+          <tr> 
+            <td><img src="https://c02.purpledshub.com/uploads/sites/62/2024/08/Japanese-giant-salamander-diet.jpg?fit=1024,1024&webp=1&w=1200" alt="Japanese Giant Salamander" class="animal-img"></td> 
+            <td>Japanese Giant Salamander</td> 
+            <td>Andrias japonicus</td> 
+            <td>Japan </td> 
+            <td>50-60 years</td> 
+            <td>Near Threatened</td> 
+            <td>Endemic to Japan, it's the world's second-largest salamander.</td> 
+          </tr>
+          <tr> 
+            <td><img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Grus_japonensis_-Hokkaido%2C_Japan_-several-8_%281%29.jpg" alt="Red-Crowned Crane" class="animal-img"></td> 
+            <td>Red-Crowned Crane</td> 
+            <td>Grus japonensis</td> 
+            <td>Japan</td> 
+            <td>30-40 years</td> 
+            <td>Vulnerable</td> 
+            <td>Symbolizes longevity and known for its red crown and courtship dances.</td> 
+          </tr>
+          <tr> 
+            <td><img src="https://www.encirclephotos.com/wp-content/uploads/Thailand-Chiang-Mai-Zoo-Indochinese-Tiger-1440x961.jpg" alt="Indochinese Tiger" class="animal-img"></td> 
+            <td>Indochinese Tiger</td> 
+            <td>Panthera tigris corbetti</td> 
+            <td>Thailand</td> 
+            <td>15-20 years</td> 
+            <td>Endangered</td> 
+            <td>This smaller tiger subspecies has a darker coat and is native to Southeast Asia.</td> 
+          </tr>
+          <tr> 
+            <td><img src="https://nam-viet-voyage.com/wp-content/uploads/2015/10/elephant-asia-fb.jpg" alt="Asian Elephant" class="animal-img"></td> 
+            <td>Asian Elephant</td> 
+            <td>Elephas maximus</td> 
+            <td>Thailand</td> 
+            <td>60-70 years</td> 
+            <td>Endangered</td> 
+            <td>Known for intelligence, it's a slightly smaller relative of the African elephant.</td> 
+          </tr>
+          <tr> 
+            <td><img src="https://images.deccanherald.com/deccanherald%2Fimport%2Fsites%2Fdh%2Ffiles%2Farticleimages%2F2021%2F08%2F13%2Fcobra-1019272-1628845202.jpg?w=1200&ar=40%3A21&auto=format%2Ccompress&ogImage=true&mode=crop&enlarge=true&overlay=false&overlay_position=bottom&overlay_width=100" alt="King Cobra" class="animal-img"></td> 
+            <td>King Cobra</td> 
+            <td>Ophiophagus hannah</td> 
+            <td>Thailand</td> 
+            <td>20 years</td> 
+            <td>Vulnerable</td> 
+            <td>The longest venomous snake, with an iconic hood and intimidating size.</td> 
+          </tr>
+          <tr> 
+            <td><img src="https://images.squarespace-cdn.com/content/v1/657b302ad0d11e71b22b40c3/1705335532774-DAY9SFG66ATMAAZGOSVL/preview_13.normal.jpg" alt="Komodo Dragon" class="animal-img"></td> 
+            <td>Komodo Dragon</td> 
+            <td>Varanus komodoensis</td> 
+            <td>Indonesia</td> 
+            <td>30 years</td> 
+            <td>Endangered</td> 
+            <td>The world's largest lizard, known for its powerful bite and venom.</td> 
+          </tr>
+          <tr> 
+            <td><img src="https://denverzoo.org/wp-content/uploads/2018/09/sumatran-orangutan_feature.jpg" alt="Sumatran Orangutan" class="animal-img"></td> 
+            <td>Sumatran Orangutan</td> 
+            <td>Pongo abelii</td> 
+            <td>Indonesia</td> 
+            <td>30-40 years</td> 
+            <td>Critically Endangered</td> 
+            <td>Known for red fur, this highly arboreal ape is endangered by deforestation.</td> 
+          </tr>
+          <tr> 
+            <td><img src="https://finnsbeachclub.com/wp-content/uploads/2024/08/profile-view-of-two-bali-myna-birds-before-the-dar-2023-11-27-05-17-55-utc-scaled.jpg" alt="Bali Starling" class="animal-img"></td> 
+            <td>Bali Starling</td> 
+            <td>Leucopsar rothschildi</td> 
+            <td>Indonesia</td> 
+            <td>20-25 years</td> 
+            <td>Critically Endangered</td> 
+            <td>Native to Bali, this rare bird has distinctive white feathers and blue facial skin.</td> 
+          </tr>
+          <tr> 
+            <td><img src="https://www.fauna-flora.org/wp-content/uploads/2023/05/MicrosoftTeams-image-1-1-scaled-1.jpg" alt="Arabian Oryx" class="animal-img"></td> 
+            <td>Arabian Oryx</td> 
+            <td>Oryx leucoryx</td> 
+            <td>Saudi Arabia</td> 
+            <td>15-20 years</td> 
+            <td>Vulnerable</td> 
+            <td>Known for its straight horns, it's adapted to desert life.</td> 
+          </tr>
+          <tr> 
+            <td><img src="https://media.cnn.com/api/v1/images/stellar/prod/230426135537-sand-cat-1.jpg?c=original&q=h_447,c_fill" alt="Sand Cat" class="animal-img"></td> 
+            <td>Sand Cat</td> 
+            <td>Felis margarita</td> 
+            <td>Saudi Arabia</td> 
+            <td>13 years</td> 
+            <td>Least Concern</td> 
+            <td>Small and elusive, this cat has thick foot fur for navigating desert sands.</td> 
+          </tr>
+          <tr> 
+            <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgvNODmWQhZLq6ZZoRVa3pS4iWh5ZSjNOn8w&s" alt="Arabian Leopard" class="animal-img"></td> 
+            <td>Arabian Leopard</td> 
+            <td>Panthera pardus nimr</td> 
+            <td>Saudi Arabia</td> 
+            <td>10-15 years</td> 
+            <td>Critically Endangered</td> 
+            <td>This rare leopard, with a pale coat, is adapted to its arid Arabian habitat.</td> 
+          </tr>
+          <tr> 
+            <td><img src="https://media.licdn.com/dms/image/v2/D4E12AQGniCbWy7Eo0w/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1683659936527?e=2147483647&v=beta&t=lrdB0iXLWsSeuUY-pq_POL-h9FSiM-kwcYofOPU1WOg" alt="Saola" class="animal-img"></td> 
+            <td>Saola</td> 
+            <td>Pseudoryx nghetinhensis</td> 
+            <td>Vietnam</td> 
+            <td>8-12 years</td> 
+            <td>Critically Endangered</td> 
+            <td>Often called the "Asian unicorn," this rare antelope was discovered in 1992.</td> 
+          </tr>
+          <tr> 
+            <td><img src="https://i.pinimg.com/originals/84/29/19/8429196ba3aa79da6bcf2611206cbb6d.png" alt="Tonkin Snub-Nosed Monkey" class="animal-img"></td> 
+            <td>Tonkin Snub-Nosed Monkey</td> 
+            <td>Rhinopithecus avunculus</td> 
+            <td>Vietnam</td> 
+            <td>20 years</td> 
+            <td>Critically Endangered</td> 
+            <td>This primate has an upturned nose and lives in northern Vietnam's forests.</td> 
+          </tr>
+          <tr> 
+            <td><img src="https://bigcatswildcats.com/wp-content/uploads/2024/06/an-indochinese-leopard-laying-down.jpg" alt="Indochinese Leopard" class="animal-img"></td> 
+            <td>Indochinese Leopard</td> 
+            <td>Panthera pardus delacouri</td> 
+            <td>Vietnam</td> 
+            <td>10-15 years</td> 
+            <td>Endangered</td> 
+            <td>Agile and smaller than other leopards, it's native to Southeast Asia.</td> 
+          </tr>
+            <tr> 
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Noblest_Flyer_Philippine_Eagle.jpg/220px-Noblest_Flyer_Philippine_Eagle.jpg" alt="Philippine Eagle" class="animal-img"></td> 
+    <td>Philippine Eagle</td> 
+    <td>Pithecophaga jefferyi</td> 
+    <td>Philippines</td> 
+    <td>30-40 years</td> 
+    <td>Critically Endangered</td> 
+    <td>Known as the "monkey-eating eagle," it’s one of the world’s largest eagles and is found only in the Philippines.</td> 
+</tr>
+<tr> 
+    <td><img src="https://nplimages.infradoxxs.com/cache/pcache2/01312752.jpg" alt="Tamaraw" class="animal-img"></td> 
+    <td>Tamaraw</td> 
+    <td>Bubalus mindorensis</td> 
+    <td>Philippines</td> 
+    <td>20-25 years</td> 
+    <td>Critically Endangered</td> 
+    <td>A small, rare buffalo native to the island of Mindoro, distinguished by its V-shaped horns.</td> 
+</tr>
+<tr> 
+    <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3dWtzZTmnLPUemI4R0FZwfmODBcPNwrw96A&s" alt="Philippine Crocodile" class="animal-img"></td> 
+    <td>Philippine Crocodile</td> 
+    <td>Crocodylus mindorensis</td> 
+    <td>Philippines</td> 
+    <td>70+ years</td> 
+    <td>Critically Endangered</td> 
+    <td>One of the world’s rarest crocodile species, found in freshwater habitats in the Philippines.</td> 
+</tr>
+<tr> 
+    <td><img src="https://s3.animalia.bio/animals/photos/full/1.25x1/shutterstock-1976559332jpg.webp?id=3edb2aa097184db0d9dc724febf152bf" alt="Malayan Tapir" class="animal-img"></td> 
+    <td>Malayan Tapir</td> 
+    <td>Tapirus indicus</td> 
+    <td>Malaysia</td> 
+    <td>25-30 years</td> 
+    <td>Endangered</td> 
+    <td>Recognized by its distinctive black and white coloring, this large herbivore lives in rainforests.</td> 
+</tr>
+<tr> 
+    <td><img src="https://www.pbs.org/wnet/nature/files/2018/02/Male_Bornean_Orangutan_-_Big_Cheeks-e1518735799960-1280x734.jpg" alt="Bornean Orangutan" class="animal-img"></td> 
+    <td>Bornean Orangutan</td> 
+    <td>Pongo pygmaeus</td> 
+    <td>Malaysia</td> 
+    <td>35-45 years</td> 
+    <td>Critically Endangered</td> 
+    <td>A unique, highly intelligent primate native to Borneo, known for its red fur.</td> 
+</tr>
+<tr> 
+    <td><img src="https://external-preview.redd.it/_crZWa_8u-Rng4DpMj4SBy5U3TYXpqda0CvXbCIY10g.jpg?width=640&crop=smart&auto=webp&s=75eeddffe0f78663a17f2d0b34a8b892e038911d" alt="Clouded Leopard" class="animal-img"></td> 
+    <td>Clouded Leopard</td> 
+    <td>Neofelis nebulosa</td> 
+    <td>Malaysia</td> 
+    <td>11-17 years</td> 
+    <td>Vulnerable</td> 
+    <td>Named for its large cloud-shaped markings, this elusive cat is an excellent tree climber.</td> 
+</tr>
+<tr> 
+    <td><img src="https://www.tristatehomepage.com/wp-content/uploads/sites/92/2022/09/red-panda-2.jpg?strip=1" alt="Red Panda" class="animal-img"></td> 
+    <td>Red Panda</td> 
+    <td>Ailurus fulgens</td> 
+    <td>Nepal</td> 
+    <td>8-10 years in the wild</td> 
+    <td>Endangered</td> 
+    <td>This small, tree-dwelling mammal has reddish-brown fur and is native to the Himalayas.</td> 
+</tr>
+<tr> 
+    <td><img src="https://www.saevus.in/wp-content/uploads/2017/06/Indian_rhinoceros8-1.jpg" alt="Indian Rhinoceros" class="animal-img"></td> 
+    <td>Indian Rhinoceros</td> 
+    <td>Rhinoceros unicornis</td> 
+    <td>Nepal</td> 
+    <td>35-45 years</td> 
+    <td>Vulnerable</td> 
+    <td>Known for its single horn and armor-like skin, it inhabits Nepal’s grasslands and wetlands.</td> 
+</tr>
+<tr> 
+    <td><img src="https://s3.animalia.bio/animals/photos/full/1.25x1/shutterstock-1093250126jpg.webp?id=d5eb3aa0968bd8c4c4da40c8243f2e4d" alt="Markhor" class="animal-img"></td> 
+    <td>Markhor</td> 
+    <td>Capra falconeri</td> 
+    <td>Pakistan</td> 
+    <td>10-15 years</td> 
+    <td>Near Threatened</td> 
+    <td>A large wild goat with twisted horns, Pakistan’s national animal, found in mountainous regions.</td> 
+</tr>
+<tr> 
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/6/67/A-Platanista-gangetica-showing-the-body-shape-and-especially-the-head-with-a-long-beak.png" alt="Indus River Dolphin" class="animal-img"></td> 
+    <td>Indus River Dolphin</td> 
+    <td>Platanista gangetica minor</td> 
+    <td>Pakistan</td> 
+    <td>20-30 years</td> 
+    <td>Endangered</td> 
+    <td>Blind river dolphin, known for its unique side-swimming behavior in the Indus River.</td> 
+</tr>
+<tr> 
+    <td><img src="https://c02.purpledshub.com/uploads/sites/62/2014/10/GettyImages-164854094-85c87f5.jpg" alt="Snow Leopard" class="animal-img"></td> 
+    <td>Snow Leopard</td> 
+    <td>Panthera uncia</td> 
+    <td>Pakistan</td> 
+    <td>15-18 years</td> 
+    <td>Vulnerable</td> 
+    <td>Found in Pakistan’s northern mountains, it’s known for its thick fur and long tail for cold climates.</td> 
+</tr>
+<tr> 
+    <td><img src="https://cdn.britannica.com/17/123517-004-849A7E93/Goral.jpg?w=400&h=225&c=crop" alt="Korean Goral" class="animal-img"></td> 
+    <td>Korean Goral</td> 
+    <td>Naemorhedus caudatus</td> 
+    <td>South Korea</td> 
+    <td>15 years</td> 
+    <td>Vulnerable</td> 
+    <td>A goat-antelope adapted to steep mountainous terrain, it is native to Korea’s forests.</td> 
+</tr>
+<tr> 
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/6/65/Amur_Leopard_%28P.p._amurensis%29.jpg" alt="Amur Leopard" class="animal-img"></td> 
+    <td>Amur Leopard</td> 
+    <td>Panthera pardus orientalis</td> 
+    <td>South Korea</td> 
+    <td>10-15 years</td> 
+    <td>Critically Endangered</td> 
+    <td>One of the rarest big cats, native to northeast Asia with a pale coat and thick fur.</td> 
+</tr>
+<tr> 
+    <td><img src="https://cms.pairidaiza.eu/thumbor/hZUSu8pzqdfJwm7wxYaN4-gSYEo=/fit-in/1024x/filters:quality(92)/--/uploads/2024/02/Galina_MI4A1269-e1707924335515.jpg" alt="Asian Black Bear" class="animal-img"></td> 
+    <td>Asian Black Bear</td> 
+    <td>Ursus thibetanus</td> 
+    <td>South Korea</td> 
+    <td>25-30 years</td> 
+    <td>Vulnerable</td> 
+    <td>Known as the "moon bear" for its chest crescent, it’s found in South Korean forests.</td> 
+</tr>
+<tr> 
+    <td><img src="https://swarajya.gumlet.io/swarajya/2018-04/e6befcf9-b3c8-413d-8084-7248956444a9/9687c403-5bd7-446b-a8cc-3c28ef068c40.jpg?w=1200&h=675&auto=format%2Ccompress&fit=max&enlarge=true" alt="Asiatic Cheetah" class="animal-img"></td> 
+    <td>Asiatic Cheetah</td> 
+    <td>Acinonyx jubatus venaticus</td> 
+    <td>Iran</td> 
+    <td>10-12 years in the wild</td> 
+    <td>Critically Endangered</td> 
+    <td>A critically endangered cheetah subspecies, with only a few individuals left in Iran.</td>
+</tr>
+
+        </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="animalModal" tabindex="-1" role="dialog" aria-labelledby="animalModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="animalModalLabel">Animal Information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6 text-center modal-img-container">
+            <img id="modalAnimalImage" src="" alt="Animal" class="modal-img img-fluid">
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <span class="info-label">Animal Name: </span>
+              <span id="modalAnimalName" class="info-text"></span>
+            </div>
+            <div class="mb-3">
+              <span class="info-label">Scientific Name: </span>
+              <span id="modalScientificName" class="info-text"></span>
+            </div>
+            <div class="mb-3">
+              <span class="info-label">Country: </span>
+              <span id="modalCountry" class="info-text"></span>
+            </div>
+            <div class="mb-3">
+              <span class="info-label">Life Span: </span>
+              <span id="modalLifeSpan" class="info-text"></span>
+            </div>
+            <div class="mb-3">
+              <span class="info-label">IUCN Category: </span>
+              <span id="modalIUCN" class="info-text"></span>
+            </div>
+            <div class="mb-3">
+              <span class="info-label">Description: </span>
+              <span id="modalDescription" class="info-text"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const rows = document.querySelectorAll(".table tbody tr");
+
+  rows.forEach(row => {
+    const iucnCell = row.cells[5];  // Assuming IUCN Category is the 6th column
+    const category = iucnCell.textContent.trim().toLowerCase();
+
+    // Set text color based on category
+    switch (category) {
+      case "least concern":
+        iucnCell.style.color = "#2E8B57"; // green
+        break;
+      case "vulnerable":
+        iucnCell.style.color = "#FFD700"; // Yellow
+        break;
+      case "near threatened":
+        iucnCell.style.color = "#FFA500"; // Orange
+        break;
+      case "endangered":
+        iucnCell.style.color = "#FF6347"; // Red
+        break;
+      case "critically endangered":
+        iucnCell.style.color = "#8B0000"; // Dark red
+        break;
+      case "data deficient":
+        iucnCell.style.color = "#000000"; // Black
+        break;
+      default:
+        iucnCell.style.color = ""; // Default to normal text color
+    }
+  });
+});
+
+
+
+
+
+
+
+$(document).ready(function() {
+  $('.table tbody tr').click(function() {
+    var $row = $(this);
+    var image = $row.find('img').attr('src');
+    var animalName = $row.find('td:eq(1)').text();
+    var scientificName = $row.find('td:eq(2)').text();
+    var country = $row.find('td:eq(3)').text();
+    var lifeSpan = $row.find('td:eq(4)').text();
+    var iucn = $row.find('td:eq(5)').text();
+    var description = $row.find('td:eq(6)').text();
+
+    $('#modalAnimalImage').attr('src', image);
+    $('#modalAnimalName').text(animalName);
+    $('#modalScientificName').text(scientificName);
+    $('#modalCountry').text(country);
+    $('#modalLifeSpan').text(lifeSpan);
+    $('#modalIUCN').text(iucn);
+    $('#modalDescription').text(description);
+
+    $('#animalModal').modal('show');
+  });
+});
+</script>
+
+</body>
+</html>

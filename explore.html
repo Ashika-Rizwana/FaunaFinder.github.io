@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Animals by Continent | FaunaFinder</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://americanprairie.org/wp-content/uploads/2023/02/grass-3253.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #2c3e50;
+            padding: 20px 50px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #e74c3c;
+        }
+
+        .navbar .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        h1 {
+            margin: 40px 0;
+            color: #fff;
+            text-align: center;
+            font-size: 3rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+        }
+
+        .continent-box {
+            width: 250px;
+            height: 250px;
+            margin: 20px;
+            display: inline-block;
+            text-align: center;
+            line-height: 250px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            border-radius: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .continent-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            transition: opacity 0.3s;
+        }
+
+        .continent-box:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+        }
+
+        .continent-box:hover::before {
+            opacity: 0;
+        }
+
+        .continent-box span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .asia { background-image: url('https://overatours.com/wp-content/uploads/2023/11/The-best-animals-in-Asia.png'); }
+        .africa { background-image: url('https://www.passportandpixels.com/wp-content/uploads/2020/11/Laikipia-Day-3_R5-115_pp.jpg'); }
+        .north-america { background-image: url('https://d1jyxxz9imt9yb.cloudfront.net/medialib/4350/image/s768x1300/AdobeStock_123823873_433578_reduced.jpg'); }
+        .south-america { background-image: url('https://www.worldatlas.com/r/w1200/upload/fb/5a/17/jaguar-amazon-adalbert-dragon.jpg'); }
+        .europe { background-image: url('https://wildlifeobservatory.org/wp-content/uploads/2021/12/Wildlife_in_Europe-2--scaled.jpg'); }
+        .australia { background-image: url('https://cdn.britannica.com/17/156517-050-121E4D97/kangaroo-joey-pouch-Australia.jpg'); }
+
+        .container {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="../index.html" class="logo">FaunaFinder</a>
+        <div>
+            <a href="../index.html">Home</a>
+            <a href="explore.html">Explore</a>
+            <a href="map.html">Animal Atlas</a>
+            <a href="conservation.html">Conservation</a>
+            <a href="about.html">About</a>
+        </div>
+    </nav>
+
+    <div class="container text-center mt-5">
+        <h1>Discover Exotic Animals: A Journey Through the Continents</h1>
+      
+        <div class="continent-box asia" onclick="location.href='continents/asia.html';">
+            <span>Asia</span>
+        </div>
+
+        <div class="continent-box africa" onclick="location.href='continents/africa.html';">
+            <span>Africa</span>
+        </div>
+
+        <div class="continent-box north-america" onclick="location.href='continents/north-america.html';">
+            <span>North America</span>
+        </div>
+
+        <div class="continent-box south-america" onclick="location.href='continents/south-america.html';">
+            <span>South America</span>
+        </div>
+
+        <div class="continent-box europe" onclick="location.href='continents/europe.html';">
+            <span>Europe</span>
+        </div>
+
+        <div class="continent-box australia" onclick="location.href='continents/australia.html';">
+            <span>Australia</span>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

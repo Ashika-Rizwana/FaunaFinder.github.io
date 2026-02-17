@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Exotic Animal Data Table</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #001f3f; /* Navy blue background */
+    }
+   .table-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  margin: 50px auto;
+  width: 95%;
+  max-width: 1200px;
+}
+       .table-hover tbody tr:hover {
+      background-color: #f0f8ff;
+      cursor: pointer;
+    }
+    .table thead th {
+  text-align: center;
+  background-color: #2c3e50;
+  color: white;
+  padding: 15px;
+  font-weight: 600;
+}
+    .table td, .table th {
+      vertical-align: middle;
+      text-align: center;
+    }
+    .animal-img {
+      width: 80px;
+      height: auto;
+      border-radius: 5px;
+    }
+.modal-content {
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.modal-header {
+  background-color: #2c3e50;
+  color: white;
+  border-bottom: none;
+  padding: 1rem 1.5rem;
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.modal-title {
+  font-weight: bold;
+}
+
+.close {
+  color: white;
+}
+
+.close:hover {
+  color: #ddd;
+}
+
+.modal-img-container {
+  margin-bottom: 20px;
+}
+
+.modal-img {
+  max-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.info-label {
+  font-weight: bold;
+  color: #2c3e50;
+  display: inline-block;
+  min-width: 120px;
+}
+
+.info-text {
+  color: #34495e;
+}
+
+.mb-3 {
+  margin-bottom: 1rem;
+}
+.table tbody tr td:nth-child(3) {
+  font-style: italic;
+}
+
+  </style>
+</head>
+<body>
+
+<div class="container d-flex justify-content-center">
+  <div class="table-container">
+    <h2 class="text-center mb-4">List of Exotic Animals Found in Australia</h2>
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Animal Name</th>
+          <th>Scientific name</th>
+          <th>Country</th>
+          <th>Life span</th>
+          <th>IUCN category</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="https://cdn.britannica.com/26/162626-050-3534626F/Koala.jpg" alt="Koala" class="animal-img" ></td>
+          
+          <td>Koala</td>
+          <td>Phascolarctos cinereus</td>
+          <td>Australia</td>
+          <td>13-18 years</td>
+          <td>Vulnerable</td>
+          <td>A tree-dwelling marsupial native to eucalyptus forests.</td>
+        </tr>
+        <tr>
+          <td><img src="https://museumsvictoria.com.au/media/16781/platypus-closeup.jpg" alt="Platypus" class="animal-img" ></td>
+     
+          <td>Platypus</td>
+          <td>Ornithorhynchus anatinus</td>
+          <td>Australia</td>
+          <td>21-25 years</td>
+          <td>Near Threatened</td>
+          <td>A semi-aquatic, egg-laying mammal with a duck-like bill.</td>        </tr>
+<tr>
+          <td><img src="https://cdn.britannica.com/55/234355-050-6B07C130/Saltwater-crocodile.jpg" alt="Saltwater Crocodile" class="animal-img"></td>
+
+          <td>Saltwater Crocodile</td>
+          <td>Crocodylus porosus</td>
+          <td>Australia</td>
+          <td>70 years</td>
+          <td>Least Concern</td>
+          <td>The largest living reptile, found in the northern regions.
+</td>        
+</tr>
+<tr>
+          <td><img src="https://npr.brightspotcdn.com/dims3/default/strip/false/crop/5760x3840+0+0/resize/5760x3840!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Ffc%2F56%2F4ec372794ab4b28c1ac927be3fce%2Fap24203594141596.jpg" alt="Tree Kangaroo" class="animal-img" ></td>
+      
+          <td>Tree Kangaroo</td>
+          <td>Dendrolagus matschiei</td>
+          <td>Papua New Guinea</td>
+          <td>15-20 years</td>
+          <td>Nearly Threatened</td>
+          <td>Arboreal kangaroo species found in mountainous rainforests.</td>        
+</tr>
+<tr>
+          <td><img src="https://animals.sandiegozoo.org/sites/default/files/2016-10/birdofparadise_superb.jpg" alt="Bird of Paradise" class="animal-img"></td>
+          <td>Bird of Paradise</td>
+          <td>Paradisaea raggiana</td>
+          <td>Papua New Guinea</td>
+          <td>5-8 years</td>
+          <td>Near Threatened</td>
+          <td>Known for elaborate plumage and mating displays.</td>        
+</tr>
+<tr>
+          <td><img src="https://static.inaturalist.org/photos/84671005/medium.jpg" alt="Papuan Black Snake" class="animal-img" ></td>
+          <td>Papuan Black Snake</td>
+          <td>Pseudechis papuanus</td>
+          <td>Papua New Guinea</td>
+          <td>25 years</td>
+          <td>Data Deficient</td>
+          <td>A venomous snake native to lowland rainforests.</td>        
+</tr>
+<tr>
+          <td><img src="https://nationalzoo.si.edu/sites/default/files/animals/northislandbrownkiwi-001.jpg" alt="Kiwi" class="animal-img" ></td>
+          <td>Kiwi</td>
+          <td>Apteryx australis</td>
+          <td>New Zealand</td>
+          <td>25-50 years</td>
+          <td>Stable</td>
+          <td>Flightless, nocturnal bird with a long beak, symbol of New Zealand.</td>        
+</tr>
+<tr>
+          <td><img src="https://images.ctfassets.net/cnu0m8re1exe/7BDw7rNjf1pOxtE3fH3aHr/54719de76be396465fb40315db2e2bca/Tuatara.jpg" alt="Tuatara" class="animal-img" ></td>       
+          <td>Tuatara</td>
+          <td>Sphenodon punctatus</td>
+          <td>New Zealand</td>
+          <td>60 years</td>
+          <td>Least Concern</td>
+          <td>Reptile resembling lizards but belonging to an ancient lineage.</td>        
+</tr>
+<tr>
+          <td><img src="https://www.islands.com/img/gallery/you-can-see-rare-yellow-eyed-penguins-at-only-one-spot-in-the-world/intro-1708039187.jpg" alt="Yellow-Eyed Penguin" class="animal-img" ></td> 
+          <td>Yellow-Eyed Penguin</td>
+          <td>Megadyptes antipodes</td>
+          <td>New Zealand</td>
+          <td>23 years</td>
+          <td>Endangered</td>
+          <td>One of the world’s rarest penguin species.</td>        
+</tr>
+<tr>
+          <td><img src="https://science.sandiegozoo.org/sites/default/files/heros-fiji-iguana.jpg" alt="Fiji Banded Iguana" class="animal-img" ></td>
+          <td>Fiji Banded Iguana</td>
+          <td>Brachylophus bulabula</td>
+          <td>Fiji</td>
+          <td>10-15 years</td>
+          <td>Endangered</td>
+          <td>A vibrant green lizard endemic to Fiji’s islands.</td>        
+</tr>
+<tr>
+          <td><img src="https://www.robinradar.com/hubfs/AdobeStock_336802657c2.jpeg" alt="Fiji Flying Fox (Fruit Bat)" class="animal-img" ></td>
+          <td>Fiji Flying Fox (Fruit Bat) </td>
+          <td>Mirimiri acrodonta</td>
+          <td>Fiji</td>
+          <td>12-15 years</td>
+          <td>Critically Endangered</td>
+          <td>A large bat species feeding on fruits and flowers.</td>        
+</tr>
+<tr>
+          <td><img src="https://s3.amazonaws.com/media.jungledragon.com/images/2994/45750_medium.jpg?AWSAccessKeyId=05GMT0V3GWVNE7GGM1R2&Expires=1730937610&Signature=kglXLF2eTPqgcUFofUSsbXCMVk4%3D" alt="Fijian Tree Frog" class="animal-img" ></td>
+          <td>Fijian Tree Frog</td>
+          <td>Platymantis vitiensis</td>
+          <td>Fiji</td>
+          <td>5-8 years</td>
+          <td>Near Threatened</td>
+          <td>Native frog adapted to rainforests and streams.</td>        
+</tr>
+<tr>
+          <td><img src="https://i.pinimg.com/736x/f9/7e/00/f97e009d5bfd54c797f8311fcb4b8578.jpg" alt="Solomon Islands Skink (Monkey-Tailed Skink)" class="animal-img" ></td>
+          <td>Solomon Islands Skink (Monkey-Tailed Skink)</td>
+          <td>Corucia zebrata</td>
+          <td>Solomon Islands</td>
+          <td>15 years</td>
+          <td>Near Threatened</td>
+          <td> Largest skink species, unique for its prehensile tail.</td>        
+</tr>
+<tr>
+          <td><img src="https://images.squarespace-cdn.com/content/v1/5cb43f48523958d6ab567825/1626634544603-841RR0WIA84ANJBT8IAD/kokh-1.jpg" alt="Dugong" class="animal-img" ></td>
+          <td>Dugong</td>
+          <td>Dugong dugon</td>
+          <td>Solomon Islands</td>
+          <td>70 years</td>
+          <td>Vulnerable </td>
+          <td>Marine mammal found in shallow coastal waters and seagrass beds.</td>        
+</tr>
+<tr>
+          <td><img src="https://www.oiseaux.net/photos/lars.petersson/images/megapode.de.layard.lape.1g.jpg" alt="Vanuatu Megapode" class="animal-img"></td>
+          <td>Vanuatu Megapode</td>
+          <td>Megapodius layardi</td>
+          <td>Vanuatu</td>
+          <td>15-20 years</td>
+          <td>Vulnerable</td>
+          <td>A bird that uses geothermal heat to incubate its eggs</td>        
+</tr>
+<tr>
+          <td><img src="https://www.fisheries.noaa.gov/s3//2022-03/3909x2932-hawksbill-swimming-Maui-2012-PIFSC_1.jpg" alt="Hawksbill Sea Turtle" class="animal-img" ></td>
+          <td>Hawksbill Sea Turtle</td>
+          <td>Eretmochelys imbricata</td>
+          <td>Vanuatu</td>
+          <td>50-60 years</td>
+          <td>Critically Endangered</td>
+          <td>A critically endangered sea turtle found around coral reefs.</td>        
+</tr>
+<tr>
+          <td><img src="https://www.manu.pf/wp-content/uploads/2020/09/photothomas.jpg" alt="Tahiti Monarch" class="animal-img" ></td>
+          <td>Tahiti Monarch</td>
+          <td>Pomarea nigra</td>
+          <td>French Polynesia</td>
+          <td>15 years</td>
+          <td>Critically Endangered</td>
+          <td>Endangered bird found in French Polynesia.</td>        
+</tr>
+<tr>
+          <td><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/15080494/original.jpg" alt="Moorea Reed Warbler" class="animal-img" ></td>
+          <td>Moorea Reed Warbler</td>
+          <td>Acrocephalus longirostris</td>
+          <td>French Polynesia</td>
+          <td>5 years</td>
+          <td>Critically Endangered</td>
+          <td> Native to Moorea island, inhabits forests and scrubland.</td>        
+</tr>
+<tr>
+          <td><img src="https://c0.wallpaperflare.com/preview/226/1014/542/animal-bottlenose-dolphin-close-up-cute.jpg" alt="Bottlenose Dolphin" class="animal-img" ></td>
+          <td>Bottlenose Dolphin</td>
+          <td>Delphinus truncatus</td>
+          <td>French Polynesia</td>
+          <td>40 years</td>
+          <td>Least concern</td>
+          <td>Commonly seen in coastal waters around French Polynesian islands.</td>        
+</tr>
+<tr>
+          <td><img src="https://ornithology.com/wp-content/uploads/2016/10/kagu.jpg" alt="Kagu" class="animal-img" ></td>
+          <td>Kagu</td>
+          <td>Rhynochetos jubatus</td>
+          <td>New Caledonia</td>
+          <td>20 years</td>
+          <td>Endangered</td>
+          <td>Flightless bird endemic to New Caledonia with distinctive gray plumage.</td>        
+</tr>
+<tr>
+          <td><img src="https://static.inaturalist.org/photos/235963243/large.jpg" alt="New Caledonian Crow" class="animal-img"></td>
+          <td>New Caledonian Crow </td>
+          <td>Corvus moneduloides</td>
+          <td>New Caledonia</td>
+          <td>20-30 years</td>
+          <td>Least Concern</td>
+          <td>Known for its intelligence and tool-making abilities.</td>        
+</tr>
+<tr>
+          <td><img src="https://nationalzoo.si.edu/sites/default/files/animals/new-caledonian-giant-gecko-05.jpg" alt="New Caledonian Giant Gecko " class="animal-img"></td>
+          <td>New Caledonian Giant Gecko </td>
+          <td>Rhacodactylus leachianus</td>
+          <td>New Caledonia</td>
+          <td>20-50 years</td>
+          <td>Least Concern</td>
+          <td>The largest gecko species, found in forests.</td>        
+</tr>
+<tr>
+          <td><img src="https://nationalparkofamericansamoa.weebly.com/uploads/1/9/5/0/19507257/4327555.jpg?472" alt="Samoan Flying Fox" class="animal-img" ></td>
+          <td>Samoan Flying Fox </td>
+          <td>Pteropus samoensis</td>
+          <td>Samoa</td>
+          <td>15 years</td>
+          <td>Near Threatened</td>
+          <td>Large fruit bat species important for pollination.</td>        
+</tr>
+<tr>
+          <td><img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Naturalis_Biodiversity_Center_-_ZMA.AVES.56900_-_Didunculus_strigirostris_Jardine%2C_1845_-_Columbidae_-_skin_specimen.jpeg" alt="Tooth-Billed Pigeon (Manumea)" class="animal-img"></td>
+          <td>Tooth-Billed Pigeon (Manumea)</td>
+          <td>Didunculus strigirostris</td>
+          <td>Samoa</td>
+          <td>5-10 years</td>
+          <td>Critically Endangered</td>
+          <td>Rare bird, sometimes called the "little dodo."</td>        
+</tr>
+<tr>
+          <td><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/57385236/medium.jpeg" alt="Samoan Whistler" class="animal-img"></td>
+          <td>Samoan Whistler</td>
+          <td>Pachycephala flavifrons</td>
+          <td>Samoa</td>
+          <td>5-7 years</td>
+          <td>Least Concern</td>
+          <td>A large flightless bird found in grasslands and open areas.</td>        
+</tr>
+
+
+
+        <!-- Additional rows with data attributes can be added here -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="animalModal" tabindex="-1" role="dialog" aria-labelledby="animalModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="animalModalLabel">Animal Information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6 text-center modal-img-container">
+            <img id="modalAnimalImage" src="" alt="Animal" class="modal-img img-fluid">
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <span class="info-label">Animal Name: </span>
+              <span id="modalAnimalName" class="info-text"></span>
+            </div>
+            <div class="mb-3">
+              <span class="info-label">Scientific Name: </span>
+              <span id="modalScientificName" class="info-text"></span>
+            </div>
+            <div class="mb-3">
+              <span class="info-label">Country: </span>
+              <span id="modalCountry" class="info-text"></span>
+            </div>
+            <div class="mb-3">
+              <span class="info-label">Life Span: </span>
+              <span id="modalLifeSpan" class="info-text"></span>
+            </div>
+            <div class="mb-3">
+              <span class="info-label">IUCN Category: </span>
+              <span id="modalIUCN" class="info-text"></span>
+            </div>
+            <div class="mb-3">
+              <span class="info-label">Description: </span>
+              <span id="modalDescription" class="info-text"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const rows = document.querySelectorAll(".table tbody tr");
+
+  rows.forEach(row => {
+    const iucnCell = row.cells[5];  // Assuming IUCN Category is the 6th column
+    const category = iucnCell.textContent.trim().toLowerCase();
+
+    // Set text color based on category
+    switch (category) {
+      case "least concern":
+        iucnCell.style.color = "#2E8B57"; // green
+        break;
+      case "vulnerable":
+        iucnCell.style.color = "#FFD700"; // Yellow
+        break;
+      case "near threatened":
+        iucnCell.style.color = "#FFA500"; // Orange
+        break;
+      case "endangered":
+        iucnCell.style.color = "#FF6347"; // Red
+        break;
+      case "critically endangered":
+        iucnCell.style.color = "#8B0000"; // Dark red
+        break;
+      case "data deficient":
+        iucnCell.style.color = "#000000"; // Black
+        break;
+      default:
+        iucnCell.style.color = ""; // Default to normal text color
+    }
+  });
+});
+
+$(document).ready(function() {
+  $('.table tbody tr').click(function() {
+    var $row = $(this);
+    var image = $row.find('img').attr('src');
+    var animalName = $row.find('td:eq(1)').text().trim();
+    var scientificName = $row.find('td:eq(2)').text().trim();
+    var country = $row.find('td:eq(3)').text().trim();
+    var lifeSpan = $row.find('td:eq(4)').text().trim();
+    var iucn = $row.find('td:eq(5)').text().trim();
+    var description = $row.find('td:eq(6)').text().trim();
+
+    // Populate modal with data
+    $('#modalAnimalImage').attr('src', image);
+    $('#modalAnimalName').text(animalName);
+    $('#modalScientificName').text(scientificName);
+    $('#modalCountry').text(country);
+    $('#modalLifeSpan').text(lifeSpan);
+    $('#modalIUCN').text(iucn);
+    $('#modalDescription').text(description);
+
+    // Show the modal
+    $('#animalModal').modal('show');
+  });
+});
+</script></body>
+</html>

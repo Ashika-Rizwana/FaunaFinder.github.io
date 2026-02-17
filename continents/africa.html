@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Exotic Animal Data Table</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+   body {
+      background-color: #001f3f; /* Navy blue background */
+    }
+   .table-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  margin: 50px auto;
+  width: 95%;
+  max-width: 1200px;
+}
+       .table-hover tbody tr:hover {
+      background-color: #f0f8ff;
+      cursor: pointer;
+    }
+    .table thead th {
+  text-align: center;
+  background-color: #2c3e50;
+  color: white;
+  padding: 15px;
+  font-weight: 600;
+}
+    .table td, .table th {
+      vertical-align: middle;
+      text-align: center;
+    }
+    .animal-img {
+      width: 80px;
+      height: auto;
+      border-radius: 5px;
+    }
+.modal-content {
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.modal-header {
+  background-color: #2c3e50;
+  color: white;
+  border-bottom: none;
+  padding: 1rem 1.5rem;
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.modal-title {
+  font-weight: bold;
+}
+
+.close {
+  color: white;
+}
+
+.close:hover {
+  color: #ddd;
+}
+
+.modal-img-container {
+  margin-bottom: 20px;
+}
+
+.modal-img {
+  max-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.info-label {
+  font-weight: bold;
+  color: #2c3e50;
+  display: inline-block;
+  min-width: 120px;
+}
+
+.info-text {
+  color: #34495e;
+}
+
+.mb-3 {
+  margin-bottom: 1rem;
+}
+.table tbody tr td:nth-child(3) {
+  font-style: italic;
+}
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="table-container">
+    <h2 class="text-center">Exotic Animals of Africa</h2>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Animal Name</th>
+            <th>Scientific Name</th>
+            <th>Country</th>
+            <th>Life Span</th>
+            <th>IUCN Category</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><img src="https://www.earthday.org/wp-content/uploads/2023/03/230228_1b_barbary_macaque-scaled.jpg" alt="Barbary Macaque" class="animal-img"></td>
+            <td>Barbary Macaque</td>
+            <td>Macaca sylvanus</td>
+            <td>Algeria</td>
+            <td>20-25 years</td>
+            <td>Endangered</td>
+            <td>The only macaque species found outside Asia, native to North Africa, and known for its social behavior.</td>
+          <tr>
+            <td><img src="https://animals.sandiegozoo.org/sites/default/files/styles/image_grid_full_width/public/2016-10/fennec_fox_0.jpg?itok=B64VhCFy" alt="Fennec Fox" class="animal-img"></td>
+            <td>Fennec Fox</td>
+            <td>Vulpes zerda</td>
+            <td>Algeria</td>
+            <td>10-14 years</td>
+            <td>Least Concern</td>
+            <td>Famous for its large ears, which help dissipate heat, this nocturnal fox is well-adapted to desert life.</td>
+<tr>
+            <td><img src="https://777ranch.com/wp-content/uploads/2019/01/dama-gazelle.jpeg" alt="Dama Gazelle" class="animal-img"></td>
+            <td>Dama Gazelle</td>
+            <td>Nanger dama</td>
+            <td>Algeria</td>
+            <td>12-15 years</td>
+            <td>Critically Endangered</td>
+            <td>One of the largest gazelles, known for its slender build and reddish-brown coat, found in desert and savanna habitats.</td>
+          <tr>
+            <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1TwiuuS-jIq81M_OKDALZEXmbH8xXPxSzyA&s" alt="Angolan Giraffe" class="animal-img"></td>
+            <td>Angolan Giraffe</td>
+            <td>Giraffa camelopardalis angolensis</td>
+            <td>Angola</td>
+            <td>25-30 years</td>
+            <td>Vulnerable</td>
+            <td>Known for its distinct pattern and long neck, this giraffe species is mostly found in savannas.</td>
+          </tr>
+          <tr>
+            <td><img src="https://i.natgeofe.com/n/529c91b3-1101-4f1e-a2f3-58c357dcaab1/01sableantelope_2x3.jpg" alt="Giant Sable Antelope" class="animal-img"></td>
+            <td>Giant Sable Antelope</td>
+            <td>Hippotragus niger variani</td>
+            <td>Angola</td>
+            <td>17-19 years</td>
+            <td>Critically Endangered</td>
+            <td>An iconic animal of Angola, known for its striking, curved horns and black coat in males.</td>
+          </tr>
+          <tr>
+            <td><img src="https://i.guim.co.uk/img/media/89d25a3407c5270e8a106e19856599d7660f8067/320_451_6186_3713/master/6186.jpg?width=1200&quality=85&auto=format&fit=max&s=78b0a2313363d9085bcc5c3bb8292af0" alt="African Elephant" class="animal-img"></td>
+            <td>African Elephant</td>
+            <td>Loxodonta africana</td>
+            <td>Angola</td>
+            <td>60-70 years</td>
+            <td>Endangered</td>
+            <td>The largest land animal, essential for ecosystem engineering, roaming the savannas and forests of Angola.</td>
+          </tr>
+          <tr>
+            <td><img src="https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2013/1/8/1357654213628/Lions-in-Botswana-008.jpg?width=465&dpr=1&s=none&crop=none" alt="West African Lion" class="animal-img"></td>
+            <td>West African Lion</td>
+            <td>Panthera leo senegalensis</td>
+            <td>Benin</td>
+            <td>8-14 years</td>
+            <td>Vulnerable</td>
+            <td>This lion subspecies is native to West Africa and plays a critical role in the balance of the ecosystem.</td>
+          </tr>
+          <tr>
+            <td><img src="https://elephant-gin.com/cdn/shop/articles/Untitled_design_1.png?v=1707922307&width=1100" alt="African Forest Elephant" class="animal-img"></td>
+            <td>African Forest Elephant</td>
+            <td> Loxodonta cyclotis</td>
+            <td>Benin</td>
+            <td>60-70 years</td>
+            <td>Critically Endangered</td>
+            <td>Smaller than the savanna elephant, this forest-dwelling elephant is crucial for seed dispersal in West African forests.</td>
+          </tr>
+          <tr>
+            <td><img src="https://www.rosamondgiffordzoo.org/assets/IMG_3258__ResizedImageWzMwNCw0NTdd.JPG" alt="Patas Monkey" class="animal-img"></td>
+            <td>Patas Monkey</td>
+            <td>Erythrocebus patas</td>
+            <td>Benin</td>
+            <td>15-20 years</td>
+            <td>Least Concern</td>
+            <td> Known for its reddish-brown coat and remarkable running speed, making it one of the fastest primates.</td>
+          </tr>
+          <tr>
+            <td><img src="https://i.pinimg.com/736x/68/e8/e3/68e8e35423f0c81b94213cfad9710991.jpg" alt="Kalahari Lion" class="animal-img"></td>
+            <td>Kalahari Lion</td>
+            <td>Panthera leo</td>
+            <td>Botswana</td>
+            <td>10-14 years</td>
+            <td>Vulnerable</td>
+            <td>Known for its larger size and mane, adapted to the harsh conditions of the Kalahari Desert.</td>
+          </tr>
+          <tr>
+            <td><img src="https://transforms.stlzoo.org/production/animals/painted-dog-01-01.jpg?w=1200&h=1200&auto=compress%2Cformat&fit=crop&dm=1658934200&s=1f1b3f100117fd86a35cf6cb10671ba5" alt="African Wild Dog" class="animal-img"></td>
+            <td>African Wild Dog</td>
+            <td>Lycaon pictus</td>
+            <td>Botswana</td>
+            <td>10-12 years</td>
+            <td>Endangered</td>
+            <td>A social and efficient hunter, known for its colorful coat and unique pack structure.</td>
+          </tr>
+          <tr>
+            <td><img src="https://www.flamingoland.co.uk/wp-content/uploads/2008/11/Kafue-Lechwe-scaled.jpg" alt="Lechwe Antelope" class="animal-img"></td>
+            <td>Lechwe Antelope</td>
+            <td>Kobus leche</td>
+            <td>Botswana</td>
+            <td>10-15 years</td>
+            <td>Least Concern</td>
+            <td>Known for its unique ability to move through water, it is commonly found in wetlands and floodplains.</td>
+          </tr>
+          <tr>
+            <td><img src="https://amdirac.wordpress.com/wp-content/uploads/2020/10/cross-river-gorilla.jpg" alt="Cross River Gorilla" class="animal-img"></td>
+            <td>Cross River Gorilla</td>
+            <td>Gorilla gorilla diehli</td>
+            <td>Cameroon</td>
+            <td>35-50 years</td>
+            <td>Critically Endangered</td>
+            <td>One of the rarest gorilla subspecies, found in the dense forests of the Cameroon-Nigeria border.</td>
+          </tr>
+          <tr>
+            <td><img src="https://www.science.org/do/10.1126/science.aaz0636/abs/frog_1280p.jpg" alt="Goliath Frog" class="animal-img"></td>
+            <td>Goliath Frog</td>
+            <td>Conraua goliath</td>
+            <td>Cameroon</td>
+            <td>15 years</td>
+            <td>Endangered</td>
+            <td> The largest frog species, known for its impressive size and found only in Cameroon and Equatorial Guinea.</td>
+          </tr>
+         
+           
+
+          <tr>
+            <td><img src="https://wildark.org/wp-content/uploads/2019/04/AdobeStock_12986461_p.jpg" alt="Mandrill" class="animal-img"></td>
+            <td>Mandrill</td>
+            <td>Mandrillus sphinx</td>
+            <td>Cameroon</td>
+            <td>20 years</td>
+            <td>Vulnerable</td>
+            <td>Known for its vibrant coloration and expressive face, it is one of Africa’s most striking primates.</td>
+          </tr>
+          <tr>
+            <td><img src="https://theworld.org/_next/image?url=https%3A%2F%2Fmedia.pri.org%2Fs3fs-public%2Fimages%2F2019%2F10%2F2019-10-21-silverant-wolf.jpg&w=1920&q=75" alt="Saharan Silver Ant" class="animal-img"></td>
+            <td>Saharan Silver Ant</td>
+            <td>Cataglyphis bombycina</td>
+            <td>Chad</td>
+            <td>Few months (worker ants)</td>
+            <td>Not Evaluated</td>
+            <td>Known for its metallic silver body, it withstands extreme desert temperatures and is one of the fastest ants.</td>
+          </tr>
+          <tr>
+            <td><img src="https://cdn.britannica.com/48/215948-050-A70D328C/Addax-nosomaculatus-found-in-Mauritania-Niger-Chad-Africa.jpg" alt="Addax Antelope" class="animal-img"></td>
+            <td>Addax Antelope</td>
+            <td>Addax nasomaculatus</td>
+            <td>Chad</td>
+            <td>19-25 years</td>
+            <td>Critically Endangered</td>
+            <td>Also called the white antelope, it is adapted to desert life and can survive long periods without water.
+</td>
+          </tr>
+          <tr>
+            <td><img src="https://www.naturalhistoryonthenet.com/wp-content/uploads/2016/12/Arabian-Camel.jpg" alt="Dromedary Camel" class="animal-img"></td>
+            <td>Dromedary Camel</td>
+            <td>Camelus dromedarius</td>
+            <td>Chad</td>
+            <td>40-50 years</td>
+            <td>Domesticated</td>
+            <td>Essential for transportation in desert areas, known for its single hump and endurance in harsh climates.</td>
+          </tr>
+          <tr>
+            <td><img src="https://transforms.stlzoo.org/production/animals/okapi-01-01.jpg?w=1200&h=1200&auto=compress%2Cformat&fit=crop&dm=1658949993&s=2d91329e999ec88ec4cede32cfbd383a" alt="Okapi" class="animal-img"></td>
+            <td>Okapi</td>
+            <td>Okapia johnstoni</td>
+            <td>Democratic Republic of Congo</td>
+            <td>20–30 years</td>
+            <td>Endangered</td>
+            <td> Often called the "forest giraffe," this unique animal is native to Congo’s dense forests.</td>
+          </tr>
+          <tr>
+            <td><img src="https://cincinnatizoo.org/wp-content/uploads/2023/08/51391038331_abde96ca64_b-1.jpg" alt="Bonobo" class="animal-img"></td>
+            <td>Bonobo</td>
+            <td>Pan paniscus</td>
+            <td>Democratic Republic of Congo</td>
+            <td>40 years</td>
+            <td>Endangered</td>
+            <td>Closely related to humans, these highly social primates are known for their peaceful societies.</td>
+          </tr>
+          <tr>
+            <td><img src="https://www.worldanimalprotection.org.uk/cdn-cgi/image/fit=cover,width=1280/siteassets/article/1022602_1.jpeg" class="animal-img"></td>
+            <td>African Grey Parrot</td>
+            <td>Psittacus erithacus</td>
+            <td>Democratic Republic of Congo</td>
+            <td>40-60 years</td>
+            <td>Endangered</td>
+            <td>Renowned for its intelligence and mimicry skills, it's one of the most well-known African parrots.</td>
+          </tr>
+          <tr>
+            <td><img src="https://cdn.britannica.com/38/92738-050-FBFDE4AE/Nile-crocodile.jpg" alt="Nile Crocodile" class="animal-img"></td>
+            <td>Nile Crocodile</td>
+            <td>Crocodylus niloticus</td>
+            <td>Egypt</td>
+            <td>70-100 years</td>
+            <td>Least Concern</td>
+            <td>One of the largest crocodile species, found throughout the Nile River and known for its powerful bite.</td>
+          </tr>
+          <tr>
+            <td><img src="https://www.worldbirdsanctuary.org/wp-content/uploads/2023/10/dynasty-cropped-600x600.jpg" alt="Egyptian Vulture" class="animal-img"></td>
+            <td>Egyptian Vulture</td>
+            <td>Neophron percnopterus</td>
+            <td>Egypt</td>
+            <td>21 years</td>
+            <td>Endangered</td>
+            <td>This scavenger is known for its white plumage and intelligent use of rocks to break eggs.</td>
+          </tr>
+          <tr>
+            <td><img src="https://www.enature.qa/wp-content/uploads/2015/08/image-mammal-vulpes-rueppellii-sabaea.jpg" alt="Rüppell's Fox" class="animal-img"></td>
+            <td>Rüppell's Fox</td>
+            <td>Vulpes rueppellii</td>
+            <td>Egypt</td>
+            <td>6-10 years</td>
+            <td>Least Concern</td>
+            <td>A small, desert-adapted fox with large ears to dissipate heat, found throughout Egypt’s arid regions.</td>
+          </tr>
+          <tr>
+            <td><img src="https://scx2.b-cdn.net/gfx/news/hires/2012/pregnant-primate-females-geladas2-orig-2012-02-22.jpg" alt="Gelada" class="animal-img"></td>
+            <td>Gelada</td>
+            <td>Theropithecus gelada</td>
+            <td>Ethiopia</td>
+            <td>20 years</td>
+            <td>Least Concern</td>
+            <td>Also known as the "bleeding-heart monkey," this primate is native to the Ethiopian Highlands.</td>
+          </tr>
+          <tr>
+            <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxzJ4z8_w_eL2BTzTeaHp_Y24p_inHdfBGDg&s" alt="Grevy's Zebra" class="animal-img"></td>
+            <td>Grevy's Zebra</td>
+            <td>Equus grevyi</td>
+            <td>Kenya</td>
+            <td>20-25 years</td>
+            <td>Endangered</td>
+            <td>The largest zebra species, known for its narrow stripes, found mainly in Kenya’s semi-arid areas.</td>
+          </tr>
+<tr>
+            <td><img src="https://i0.wp.com/brightszoo.com/wp-content/uploads/2022/11/Binta.jpg?resize=756%2C1024&ssl=1" alt="Reticulated Giraffe " class="animal-img"></td>
+            <td>Reticulated Giraffe</td>
+            <td>Giraffa camelopardalis reticulata</td>
+            <td>Kenya</td>
+            <td>20-25 years</td>
+            <td>Endangered</td>
+            <td>Known for its distinctive, web-like coat pattern, the reticulated giraffe roams northern Kenya.</td>
+          </tr>
+<tr>
+            <td><img src="https://c02.purpledshub.com/uploads/sites/62/2020/07/Aye-aye.-GettyImages-182939646-722c221-scaled.jpg" alt="Aye-Aye" class="animal-img"></td>
+            <td>Aye-Aye</td>
+            <td>Daubentonia madagascariensis</td>
+            <td>Madagascar</td>
+            <td>20-23 years</td>
+            <td>Endangered</td>
+            <td>A nocturnal lemur with a unique long middle finger for foraging, native to Madagascar’s forests.</td>
+          </tr>
+<tr>
+            <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Gv-A5J-UIZSSxhUY_6BYmzTRtJkMQHSpHA&s" alt="Fossa" class="animal-img"></td>
+            <td>Fossa</td>
+            <td>Cryptoprocta ferox</td>
+            <td>Madagascar</td>
+            <td>15-20 years</td>
+            <td>Vulnerable</td>
+            <td>Madagascar’s largest carnivorous mammal, resembling a cross between a cat and a mongoose.</td>
+          </tr>
+<tr>
+            <td><img src="https://i0.wp.com/wildlifemadagascar.org/wp-content/uploads/2023/12/Indri_heikkih.webp?resize=1199%2C1179&ssl=1" alt="Indri" class="animal-img"></td>
+            <td>Indri</td>
+            <td>Indri indri</td>
+            <td>Madagascar</td>
+            <td>15-18 years</td>
+            <td>Critically Endangered</td>
+            <td>The largest lemur species, known for its loud calls and strong bonds in family groups.</td>
+          </tr>
+<tr>
+            <td><img src="https://wallpapers.com/images/hd/nigeria-cameroon-chimpanzee-mspaq7eccseuyt1s.jpg" alt="Nigerian-Cameroon Chimpanzee" class="animal-img"></td>
+            <td>Nigerian-Cameroon Chimpanzee</td>
+            <td>Pan troglodytes ellioti</td>
+            <td>Nigeria</td>
+            <td>33-40 years</td>
+            <td>Endangered</td>
+            <td>This unique chimpanzee subspecies is known for its complex social behavior and communication.</td>
+          </tr>
+<tr>
+            <td><img src="https://www.earthandanimals.com/files/547756/catitems/manatee-387193-208916886cb1cfd7c08d1fe1f3279b17.jpg" alt="West African Manatee" class="animal-img"></td>
+            <td>West African Manatee</td>
+            <td>Trichechus senegalensis</td>
+            <td>Nigeria</td>
+            <td>30-40 years</td>
+            <td>Vulnerable</td>
+            <td>Also known as the sea cow, it is found in rivers and estuaries in West Africa and is vital for aquatic ecosystems.</td>
+          </tr>
+<tr>
+            <td><img src="https://www.animal.photos/reptamph5/pyth-afr_files/afr_rock3.jpg" alt="African Rock Python" class="animal-img"></td>
+            <td>African Rock Python</td>
+            <td>Python sebae</td>
+            <td>Nigeria</td>
+            <td>20-30 years</td>
+            <td>Least Concern</td>
+            <td>One of Africa’s largest snakes, found near water bodies, and known for its strength and size.</td>
+          </tr>
+
+                 </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+            
+
+
+
+
+
+
+        </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="animalModal" tabindex="-1" role="dialog" aria-labelledby="animalModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="animalModalLabel">Animal Information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6 text-center modal-img-container">
+            <img id="modalAnimalImage" src="" alt="Animal" class="modal-img img-fluid">
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <span class="info-label">Animal Name: </span>
+              <span id="modalAnimalName" class="info-text"></span>
+            </div>
+            <div class="mb-3">
+              <span class="info-label">Scientific Name: </span>
+              <span id="modalScientificName" class="info-text"></span>
+            </div>
+            <div class="mb-3">
+              <span class="info-label">Country: </span>
+              <span id="modalCountry" class="info-text"></span>
+            </div>
+            <div class="mb-3">
+              <span class="info-label">Life Span: </span>
+              <span id="modalLifeSpan" class="info-text"></span>
+            </div>
+            <div class="mb-3">
+              <span class="info-label">IUCN Category: </span>
+              <span id="modalIUCN" class="info-text"></span>
+            </div>
+            <div class="mb-3">
+              <span class="info-label">Description: </span>
+              <span id="modalDescription" class="info-text"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const rows = document.querySelectorAll(".table tbody tr");
+
+  rows.forEach(row => {
+    const iucnCell = row.cells[5];  // Assuming IUCN Category is the 6th column
+    const category = iucnCell.textContent.trim().toLowerCase();
+
+    // Set text color based on category
+    switch (category) {
+      case "least concern":
+        iucnCell.style.color = "#2E8B57"; // green
+        break;
+      case "vulnerable":
+        iucnCell.style.color = "#FFD700"; // Yellow
+        break;
+      case "near threatened":
+        iucnCell.style.color = "#FFA500"; // Orange
+        break;
+      case "endangered":
+        iucnCell.style.color = "#FF6347"; // Red
+        break;
+      case "critically endangered":
+        iucnCell.style.color = "#8B0000"; // Dark red
+        break;
+      case "data deficient":
+        iucnCell.style.color = "#000000"; // Black
+        break;
+      default:
+        iucnCell.style.color = ""; // Default to normal text color
+    }
+  });
+});
+
+
+
+
+
+
+
+$(document).ready(function() {
+  $('.table tbody tr').click(function() {
+    var $row = $(this);
+    var image = $row.find('img').attr('src');
+    var animalName = $row.find('td:eq(1)').text();
+    var scientificName = $row.find('td:eq(2)').text();
+    var country = $row.find('td:eq(3)').text();
+    var lifeSpan = $row.find('td:eq(4)').text();
+    var iucn = $row.find('td:eq(5)').text();
+    var description = $row.find('td:eq(6)').text();
+
+    $('#modalAnimalImage').attr('src', image);
+    $('#modalAnimalName').text(animalName);
+    $('#modalScientificName').text(scientificName);
+    $('#modalCountry').text(country);
+    $('#modalLifeSpan').text(lifeSpan);
+    $('#modalIUCN').text(iucn);
+    $('#modalDescription').text(description);
+
+    $('#animalModal').modal('show');
+  });
+});
+</script>
+
+</body>
+</html>
