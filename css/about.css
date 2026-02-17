@@ -10,13 +10,14 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-image: url('https://images.unsplash.com/photo-1526289636136-bce3fd37f962?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTF8MzExNDMyfHxlbnwwfHx8fHw%3D');
-    background-size: cover;
+background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('images/about.jpg') center/cover fixed;    background-size: cover;
     background-position: center;
     color: #ffffff;
     text-align: center;
     padding: 20px;
 }
+
 
 .about-content {
     background-color: rgba(0, 0, 0, 0.6); 
@@ -70,4 +71,5 @@ body {
 .back-btn:hover {
     background-color: #c0392b;
     transform: translateY(-2px);
+
 }
